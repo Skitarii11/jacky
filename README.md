@@ -74,3 +74,5 @@ frontend and admin:
 ```bash
 npm run dev
 ```
+
+This project was developed by [Javkhlan](https://github.com/Skitarii11) as a Personal project
