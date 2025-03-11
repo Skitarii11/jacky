@@ -1,54 +1,97 @@
-.food-item{
+/* Default state */
+.food-item {
     width: 100%;
     margin: auto;
     border-radius: 15px;
     box-shadow: 0px 0px 10px #00000015;
-    transition: 0.3s;
+    transition: all 0.3s ease-in-out;
     animation: fadeIn 1s;
+    cursor: pointer;
+    overflow: hidden;
+    background: white;
+    position: relative;
 }
 
-.food-item-image{
+/* Expanded item */
+.food-item.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-height: 90vh;
+    height: auto;
+    overflow: auto;
+    z-index: 100;
+    background: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+
+/* Image */
+.food-item-image {
     width: 100%;
+    height: 250px;
+    object-fit: contain;
     border-radius: 15px 15px 0px 0px;
 }
 
-.food-item-info{
-    padding: 20px;
+/* Info */
+.food-item-info {
+    padding: 10px;
 }
 
-.food-item-name-rating{
+/* Name & Rating */
+.food-item-name-rating {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.food-item-name-rating p{
+.food-item-name-rating p {
     font-size: 20px;
     font-weight: 500;
 }
 
-.food-item-name-rating img{
+.food-item-name-rating img {
     width: 70px;
 }
 
-.food-item-desc{
+/* Description - hidden by default */
+.food-item-desc {
     color: #676767;
     font-size: 12px;
+    max-height: 40px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.food-item-price{
-    color: tomato;
+/* Expanded description */
+.food-item.expanded .food-item-desc {
+    max-height: none;
+    white-space: normal;
+    overflow: visible;
+    font-size: 14px;
+}
+
+/* Price */
+.food-item-price {
+    color: #00CED1;
     font-size: 22px;
     font-weight: 500;
     margin: 10px 0px;
 }
 
-.food-item-img-container{
+/* Image container */
+.food-item-img-container {
     position: relative;
 }
 
-.food-item-img-container .add{
+/* Add button */
+.food-item-img-container .add {
     width: 35px;
     position: absolute;
     bottom: 15px;
@@ -57,7 +100,8 @@
     border-radius: 50%;
 }
 
-.food-item-counter{
+/* Counter */
+.food-item-counter {
     position: absolute;
     bottom: 15px;
     right: 15px;
@@ -69,6 +113,6 @@
     background-color: white;
 }
 
-.food-item-counter img{
+.food-item-counter img {
     width: 30px;
 }

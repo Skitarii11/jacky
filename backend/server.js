@@ -4,6 +4,7 @@ import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
 import cartRouter from "./routes/cartRoute.js";
+import path from 'path';
 import 'dotenv/config'
 import orderRouter from "./routes/orderRoute.js";
 
@@ -11,6 +12,8 @@ import orderRouter from "./routes/orderRoute.js";
 
 const app = express();
 const port = 4000;
+
+const __dirname = path.resolve();
 
 // middleware
 
@@ -28,6 +31,19 @@ app.use("/images", express.static("uploads"))
 app.use("/api/user", userRouter)
 app.use("/api/cart", cartRouter)
 app.use("/api/order", orderRouter)
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname, "/frontend/dist")));
+    app.use(express.static(path.join(__dirname, "/admin/dist")));
+
+    app.get("/admin/*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "admin", "dist", "index.html"));
+    })
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+    })
+}
 
 app.get("/",(req, res)=>{
     res.send("API working")

@@ -2,9 +2,12 @@
     padding: 20px 0px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
 }
+.hidden {
+    display: none;
+  }
+  
 
 .navbar .logo{
     width: 200px;
@@ -14,12 +17,21 @@
     display: flex;
     list-style: none;
     gap: 20px;
-    color: #49557e;
     font-size: 18px;
 }
 
+.namehere{
+    font-size: 30px;
+    top: 30px;
+}
+
+.search{
+    border-radius: 50px;
+    border-width: 0.5px;
+}
+
 .navbar-right{
-    display: flex;
+    display: none;
     align-items: center;
     gap: 40px;
 }
@@ -153,3 +165,26 @@
         display: none;
     }
 }
+
+.search-container {
+  position: relative; /* To position the results list */
+}
+
+.search {
+  border-radius: 50px;
+  border-width: 0.5px;
+  padding: 8px 12px; /* Add padding for better appearance */
+  width: 200px; /* Set a reasonable width */
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .search-results .food-item {
+    width: 200px; /* Or your desired width */
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px; /* Add some spacing between items */
+  }

@@ -1,0 +1,93 @@
+.contact-container {
+    display: flex;
+    width: 100%; /* Adjust as needed */
+    height: 100vh; /* Full viewport height */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    margin: 30px 0;
+  }
+  
+  .contact-image {
+    flex: 1; /* Takes up half the container */
+    position: relative;
+  }
+  
+  .contact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire area */
+  }
+  .contact-text {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: #404040;
+    font-size: 1em;
+    font-weight: bold;
+  }
+  
+  .contact-form {
+    flex: 1; /* Takes up half the container */
+    padding: 10px;
+    background-color: white; /* Light grey background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .wilo-logo {
+    width: 100px; /* Adjust logo size */
+    margin-bottom: 20px;
+    align-self: flex-start; /* Align logo to the start */
+  }
+  
+  .contact-form form {
+    justify-content: space-around;
+    width: 90%; /* Adjust form width as needed */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #e0e0e0; /* Light grey input background */
+  }
+  
+  .contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+  }
+  
+  .contact-form button {
+    padding: 12px 20px;
+    background-color: #e0e0e0; /*  Grey-blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-end;
+  }
+  
+  .contact-form button:hover {
+    background-color: #78909c; /* Darker grey-blue */
+  }
+  
+  /* reCAPTCHA styling */
+  .captcha-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center; /* Center the reCAPTCHA */
+  }
+  
+  .recaptcha-placeholder {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white; /* Adjust as needed */
+  }
