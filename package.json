@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "server": "NODE_ENV=development nodemon backend/server.js",
-    "build" : "npm install && npm audit fix && npm install --prefix frontend && npm audit fix --force --prefix frontend && npm install --prefix admin && npm audit fix --force --prefix admin && npm run build --prefix frontend && npm run build --prefix admin",
-    "start" : "NODE_ENV=production node backend/server.js"
+    "build": "rm -rf node_modules && rm package-lock.json && npm install && npm audit fix && rm -rf frontend/node_modules frontend/package-lock.json && npm install --prefix frontend && npm audit fix --force --prefix frontend && rm -rf admin/node_modules admin/package-lock.json && npm install --prefix admin && npm audit fix --force --prefix admin && npm run build --prefix frontend && npm run build --prefix admin",
+    "start": "NODE_ENV=production node backend/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,5 +23,11 @@
     "nodemon": "^3.1.7",
     "stripe": "^16.12.0",
     "validator": "^13.12.0"
+  },
+  "resolutions": {
+    "esbuild": "0.25.0" 
+  },
+  "overrides": {
+    "esbuild": "0.25.0"
   }
 }
