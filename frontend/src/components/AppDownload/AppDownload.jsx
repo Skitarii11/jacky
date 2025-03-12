@@ -20,6 +20,7 @@ const AppDownload = () => {
             const shuffled = [...food_list].sort(() => 0.5 - Math.random());
             return shuffled.slice(0, count).map(item => url + "/images/" + item.image);
         };
+        console.log(food_list)
 
         // Set the random images for each carousel
         setRandomImages1(getRandomImages(3)); // Adjust the count as needed
