@@ -5,9 +5,9 @@
   "main": "server.js",
   "type":"module",
   "scripts": {
-    "server": "NODE_ENV=development nodemon server.js",
-    "build" : "npm install && npm install --prefix frontend && npm install --prefix admin && npm run build --prefix frontend && npm run build --prefix admin",
-    "start" : "NODE_ENV=production node server.js"
+    "server": "NODE_ENV=development nodemon backend/server.js",
+    "build" : "npm install && npm audit fix && npm install --prefix frontend && npm audit fix --force --prefix frontend && npm install --prefix admin && npm audit fix --force --prefix admin && npm run build --prefix frontend && npm run build --prefix admin",
+    "start" : "NODE_ENV=production node backend/server.js"
   },
   "author": "",
   "license": "ISC",
