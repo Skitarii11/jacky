@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
 
-  const url = "http://localhost:10000"
+  const url =  process.env.REACT_APP_API_ENDPOINT
 
   return (
     <div>
