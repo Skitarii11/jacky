@@ -94,21 +94,53 @@
 
   @media (max-width: 300px) {
     .contact-container {
-      flex-direction: column; /* Stack image and form vertically */
+      flex-direction: column;
     }
   
     .contact-image {
-      order: -1; /* Move the image to the top */
-      width: 100%; /* Make image full width */
+      order: -1;
+      width: 100%;
+    }
+  
+    .contact-image img {
+      max-height: 150px; /* Limit the image height */
+      object-fit: contain; /* Ensure the entire image is visible */
+    }
+  
+    .contact-text {
+      position: relative; /* Make it relative so the height of image won't matter */
+      top: 0; /* Reset top */
+      left: 0; /* Reset left */
+      padding: 10px; /* Add some padding */
+      text-align: center; /* Center the text */
+      font-size: 0.8em; /* Smaller font size for mobile */
+      color: #404040;
     }
   
     .contact-form {
-      width: 100%; /* Make form full width */
-      padding: 20px; /* Add padding to the form */
-    }
-    .contact-text {
-      position: static;
-      text-align: center;
+      width: 100%;
+      padding: 10px; /* reduce padding */
     }
   
+    .wilo-logo {
+      width: 70px; /* Smaller logo */
+      margin-bottom: 10px; /* Reduced margin */
+    }
+  
+    .contact-form input,
+    .contact-form textarea {
+      margin-bottom: 10px; /* reduce margin */
+      padding: 8px; /* smaller padding */
+      font-size: 0.9em; /* smaller font */
+    }
+  
+    .contact-form textarea {
+      height: 80px; /* limit height of textarea */
+    }
+  
+    .contact-form button {
+      padding: 8px 15px; /* Smaller button */
+      font-size: 0.9em; /* Smaller button text */
+      align-self: center; /* center the button */
+    }
   }
