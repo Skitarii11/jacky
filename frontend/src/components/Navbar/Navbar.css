@@ -160,12 +160,6 @@
     }
 }
 
-@media (max-width: 750px) {
-    .navbar-menu {
-        display: none;
-    }
-}
-
 .search-container {
   position: relative; /* To position the results list */
 }
@@ -285,12 +279,6 @@
       text-align: center;
       border-bottom: 1px solid #eee;
       font-size: 16px; /* Smaller font size for menu items on mobile */
-    }
-  
-    .navbar-right {
-      justify-content: space-around;
-      width: 100%;
-      margin-top: 10px;
     }
   
     .navbar-right button {
