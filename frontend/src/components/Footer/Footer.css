@@ -60,6 +60,9 @@ img {
         flex-direction: column;
         gap: 35px;
     }
+    .footer-content-left , .footer-content-right , .footer-content-center {
+        align-items: start;
+    }
 
     .footer-copyright {
         text-align: end;

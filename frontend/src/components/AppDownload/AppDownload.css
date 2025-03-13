@@ -62,3 +62,22 @@ hr {
     background-color: white;
     border: none;
 }
+
+@media (max-width: 500px) {
+    .app-download-platforms {
+      display: grid; /* Use grid layout for 2x2 */
+      grid-template-columns: repeat(2, 1fr); /* Two columns */
+      gap: 10px; /* 10px gap between items */
+      height: auto; /* Adjust height as needed */
+      padding: 10px; /* Add some padding around the grid */
+      justify-items: center; /* Center items horizontally */
+      align-items: center; /* Center items vertically */
+    }
+  
+    .small-carousel-container {
+      width: 100%; /* Each carousel takes up the full width of its grid cell */
+      max-width: none; /* Remove max-width to fill the grid cell */
+      height: auto; /* Allow the height to adjust based on content */
+      max-height: none; /* Remove max-height restriction */
+    }
+  }
