@@ -44,7 +44,7 @@
     display: flex; /* Or grid, or whatever layout you prefer */
     justify-content: space-around; /* Distribute the carousels evenly */
     align-items: center; /* Vertically center */
-    height: 25vw;
+    /* height: 25vw; */
   }
   
   .small-carousel-container {
