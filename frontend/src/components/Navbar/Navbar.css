@@ -249,7 +249,7 @@
    }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 500px) {
     .navbar {
       flex-direction: column; /* Stack elements vertically */
       align-items: stretch; /* Stretch items to full width */

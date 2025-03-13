@@ -92,7 +92,7 @@
     background-color: white; /* Adjust as needed */
   }
 
-  @media (max-width: 300px) {
+  @media (max-width: 500px) {
     .contact-container {
       flex-direction: column;
     }
