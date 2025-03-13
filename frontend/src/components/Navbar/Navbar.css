@@ -259,11 +259,10 @@
       width: 100%;
       text-align: center; /* Center the logo on mobile */
       margin-bottom: 5px; /* Reduced margin */
-      font-size: 18px; /* Further reduce the logo font size on small screens */
+      font-size: 10px; /* Further reduce the logo font size on small screens */
     }
   
-    .navbar-menu {
-      display: none; /* Hide the menu by default */
+    .navbar-menu .namehere{
       flex-direction: column; /* Stack menu items vertically */
       width: 100%; /* Take full width */
       margin-top: 5px; /* Reduced margin */
@@ -302,8 +301,4 @@
       color: white; /* Or any visible color */
     }
   
-    /* Hide the search input and results on smaller screens */
-    .search-container {
-      display: none;
-    }
   }
