@@ -103,13 +103,13 @@
     }
   
     .contact-image img {
-      max-height: 150px; /* Limit the image height */
-      object-fit: contain; /* Ensure the entire image is visible */
+      max-height: 100%; /* Limit the image height */
+      object-fit: cover; /* Ensure the entire image is visible */
     }
   
     .contact-text {
-      position: relative; /* Make it relative so the height of image won't matter */
-      top: 0; /* Reset top */
+      position: absolute; /* Make it relative so the height of image won't matter */
+      top: 20%; /* Reset top */
       left: 0; /* Reset left */
       padding: 10px; /* Add some padding */
       text-align: center; /* Center the text */
