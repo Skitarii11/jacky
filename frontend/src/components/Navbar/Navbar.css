@@ -249,7 +249,7 @@
    }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 300px) {
     .navbar {
       flex-direction: column; /* Stack elements vertically */
       align-items: stretch; /* Stretch items to full width */
@@ -274,11 +274,11 @@
       display: flex;
     }
   
-    .navbar-menu a {
+    .navbar a {
       padding: 8px; /* Reduced padding around the links */
       text-align: center;
       border-bottom: 1px solid #eee;
-      font-size: 14px; /* Even smaller font size for menu items on mobile */
+      font-size: 10px; /* Even smaller font size for menu items on mobile */
     }
   
     .navbar-right {
