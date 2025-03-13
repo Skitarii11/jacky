@@ -29,6 +29,13 @@
     border-radius: 15px;
 }
 
+@media (max-width:500px) {
+    .food-item.expanded{
+        width: 80%;
+        top: 40%;
+    }
+}
+
 
 /* Image */
 .food-item-image {

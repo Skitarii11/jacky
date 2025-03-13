@@ -73,7 +73,7 @@ hr {
     }
   
     .small-carousel-container {
-      width: 100%; /* Each carousel takes up the full width of its grid cell */
+      width: 50%; /* Each carousel takes up the full width of its grid cell */
       max-width: none; /* Remove max-width to fill the grid cell */
       height: 150px; /* Allow the height to adjust based on content */
       max-height: none; /* Remove max-height restriction */
