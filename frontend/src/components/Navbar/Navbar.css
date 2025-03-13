@@ -267,6 +267,8 @@
       flex-direction: column; /* Stack menu items vertically */
       width: 100%; /* Take full width */
       margin-top: 5px; /* Reduced margin */
+      margin-left: 10px;
+      font-size: 10px;
     }
   
     .navbar-menu.active {
@@ -275,7 +277,7 @@
     }
   
     .navbar a {
-      padding: 8px; /* Reduced padding around the links */
+      padding: 5px; /* Reduced padding around the links */
       text-align: center;
       border-bottom: 1px solid #eee;
       font-size: 10px; /* Even smaller font size for menu items on mobile */
