@@ -188,3 +188,116 @@
     object-fit: cover;
     margin-bottom: 10px; /* Add some spacing between items */
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .navbar {
+        padding: 15px 0; /* Slightly smaller padding */
+    }
+
+    .navbar .logo {
+        width: 180px; /* Adjust logo size */
+        font-size: 22px; /* Adjust font size */
+    }
+
+    .navbar-menu {
+        gap: 15px; /* Reduce gap between menu items */
+        font-size: 17px; /* Adjust font size */
+    }
+
+    .search {
+        width: 180px; /* Slightly smaller search input */
+        padding: 6px 10px; /* Slightly smaller padding */
+    }
+
+    .navbar button {
+        padding: 8px 20px; /* Adjust button padding */
+        font-size: 15px; /* Adjust button font size */
+    }
+
+  /* If you choose to show the menu inline on tablets (instead of hamburger), adjust here: */
+  .navbar-menu {
+    display: flex; /* Force menu to be visible */
+  }
+
+  .hamburger-icon {
+    display: none; /* Hide hamburger icon */
+  }
+
+}
+
+/* Tablet adjustments (landscape orientation - less common, but handle it) */
+@media (min-width: 1024px) and (max-width: 1279px) and (orientation: landscape) {
+
+   /* If your tablet landscape view needs a larger layout:*/
+   .navbar {
+       padding: 20px 0;
+   }
+
+   .navbar .logo {
+       width: 200px;
+       font-size: 24px;
+   }
+
+   .navbar-menu {
+       gap: 20px;
+       font-size: 18px;
+   }
+
+   .search {
+       width: 200px;
+       padding: 8px 12px;
+   }
+
+
+   .navbar button {
+       padding: 10px 30px;
+       font-size: 16px;
+   }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .navbar {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: stretch; /* Stretch items to full width */
+    }
+  
+    .navbar .logo {
+      width: 100%;
+      text-align: center; /* Center the logo on mobile */
+      margin-bottom: 10px;
+    }
+  
+    .navbar-menu {
+      display: none; /* Hide the menu by default */
+      flex-direction: column; /* Stack menu items vertically */
+      width: 100%; /* Take full width */
+      margin-top: 10px;
+    }
+  
+    .navbar-menu.active {
+      /* Show the menu when the active class is added */
+      display: flex;
+    }
+  
+    .navbar-menu a {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+  
+  
+    /* Hamburger menu icon */
+    .hamburger-icon {
+      display: block;
+      cursor: pointer;
+      font-size: 24px;
+      color: white; /* Or any visible color */
+    }
+  
+    /* Hide the search input and results on smaller screens */
+    .search-container {
+      display: none;
+    }
+    
+  }
