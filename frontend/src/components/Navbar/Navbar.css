@@ -262,7 +262,7 @@
       font-size: 10px; /* Further reduce the logo font size on small screens */
     }
   
-    .navbar-menu .namehere{
+    .navbar-menu {
       flex-direction: column; /* Stack menu items vertically */
       width: 100%; /* Take full width */
       margin-top: 5px; /* Reduced margin */

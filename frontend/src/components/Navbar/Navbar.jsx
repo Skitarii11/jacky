@@ -34,6 +34,9 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
   return (
     <div className='navbar'>
       {/* "Name in here" behaves like a menu link and is active initially */}
+      
+
+      <ul className="navbar-menu">
       <a
         href='#'
         onClick={(e) => {
@@ -44,8 +47,6 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
       >
         Name in here
       </a>
-
-      <ul className="navbar-menu">
         <a
           href='#'
           onClick={(e) => {
