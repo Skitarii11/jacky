@@ -255,8 +255,7 @@
    }
 }
 
-/* Mobile Styles */
-@media (max-width: 767px) {
+@media (max-width: 450px) {
     .navbar {
       flex-direction: column; /* Stack elements vertically */
       align-items: stretch; /* Stretch items to full width */
@@ -266,6 +265,7 @@
       width: 100%;
       text-align: center; /* Center the logo on mobile */
       margin-bottom: 10px;
+      font-size: 20px; /* Further reduce the logo font size on small screens */
     }
   
     .navbar-menu {
@@ -284,8 +284,19 @@
       padding: 10px;
       text-align: center;
       border-bottom: 1px solid #eee;
+      font-size: 16px; /* Smaller font size for menu items on mobile */
     }
   
+    .navbar-right {
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    .navbar-right button {
+      padding: 6px 12px; /* Even smaller button on mobile */
+      font-size: 12px;
+    }
   
     /* Hamburger menu icon */
     .hamburger-icon {
@@ -299,5 +310,4 @@
     .search-container {
       display: none;
     }
-    
   }
