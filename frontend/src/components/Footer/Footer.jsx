@@ -1,11 +1,12 @@
 import React from 'react'
 import './Footer.css'
-import { assets } from '../../assets/assets'
+import { StoreContext } from '../../context/StoreContext'
 
 const Footer = () => {
+const { logoUrl } = useContext(StoreContext);
   return (
     <div className='footer' id='footer'>
-        <img src={ assets.logo } alt="" />
+        <img src={ logoUrl } alt="" />
         <hr />
         <div className="footer-content">
             
