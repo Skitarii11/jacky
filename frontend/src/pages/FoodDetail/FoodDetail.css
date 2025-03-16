@@ -55,6 +55,43 @@
   .food-detail-price {
     font-size: 1.4em;
     font-weight: bold;
-    color: #007bff;
+    color: #00CED1;
   }
+
+  @media (max-width: 500px) {
+    .food-detail-container {
+      width: 95%;
+      padding: 10px;
+    }
   
+    .left-section {
+      padding-right: 0;
+      width: 100%;
+    }
+  
+    .right-section {
+      padding-left: 0;
+      width: 100%;
+    }
+  
+    .food-detail-name {
+      font-size: 1.5em;
+    }
+  
+    .food-detail-image {
+      margin-bottom: 5px;
+    }
+  
+    .small-images {
+      display: none; /* Hide the small images on mobile */
+    }
+  
+    .food-detail-description {
+      font-size: 1em;
+      line-height: 1.3;
+    }
+  
+    .food-detail-price {
+      font-size: 1.2em;
+    }
+  }
