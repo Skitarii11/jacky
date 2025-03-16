@@ -1,22 +1,25 @@
 .food-detail-container {
-    display: flex;
+    display: block; /* Change to block display */
     width: 100%;
     margin: 20px auto;
     border: 1px solid #ccc;
     padding: 20px;
+    overflow: hidden; /*Important to contain floats*/
   }
   
   .left-section {
-    width: 50%;
+    width: 40%; /* Adjust as needed */
+    float: left; /* Float the entire left section to the left */
     padding-right: 20px;
-    display: flex; /* Use flexbox to arrange image and name vertically */
-    flex-direction: column; /* Stack image and name */
-    float: left;
+    box-sizing: border-box;  /* Include padding in width calculation */
   }
   
   .right-section {
-    width: 50%;
+    width: auto;  /* Occupy remaining space */
     padding-left: 20px;
+    box-sizing: border-box; /* Include padding in width calculation */
+    /* Optionally clear float to prevent overlapping
+       clear: both;  // Uncomment if needed */
   }
   
   .food-detail-name {
@@ -25,12 +28,10 @@
   }
   
   .food-detail-image {
-    width: 100%; /* Reduce the image size */
+    width: 100%; /* Image occupies full width of the left section */
     height: auto;
     border: 1px solid #eee;
-    float: left; /* Float the image to the left */
-    margin-right: 15px; /* Add spacing between image and text */
-    margin-bottom: 10px; /* Add some spacing below the image */
+    margin-bottom: 10px;
   }
   
   .small-images {
@@ -49,12 +50,11 @@
     font-size: 1.1em;
     line-height: 1.4;
     margin-bottom: 10px;
-    overflow: auto; /* Ensure description wraps around float element */
   }
   
   .food-detail-price {
     font-size: 1.4em;
     font-weight: bold;
     color: #007bff;
-    clear: both; /* Ensure price appears below floated image */
   }
+  
