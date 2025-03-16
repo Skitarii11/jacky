@@ -11,6 +11,7 @@
     padding-right: 20px;
     display: flex; /* Use flexbox to arrange image and name vertically */
     flex-direction: column; /* Stack image and name */
+    float: left;
   }
   
   .right-section {
@@ -24,7 +25,7 @@
   }
   
   .food-detail-image {
-    width: 50%; /* Reduce the image size */
+    width: 100%; /* Reduce the image size */
     height: auto;
     border: 1px solid #eee;
     float: left; /* Float the image to the left */
