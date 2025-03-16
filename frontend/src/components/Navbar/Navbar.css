@@ -25,6 +25,10 @@
     top: 30px;
 }
 
+.logo-image {
+    height: 50px;
+}
+
 .search{
     border-radius: 50px;
     border-width: 0.5px;

@@ -42,7 +42,11 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
         }}
         className={activeSection === "home" ? "active" : ""}
       >
-        Name in here
+        {logoUrl ? (
+          <img src={logoUrl} alt="Logo" className="logo-image" />
+        ) : (
+          <span>Loading Logo...</span>  // Or a default text logo
+        )}
       </a>
 
       <ul className="navbar-menu">

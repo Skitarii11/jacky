@@ -7,6 +7,7 @@ import cartRouter from "./routes/cartRoute.js";
 import path from 'path';
 import 'dotenv/config'
 import orderRouter from "./routes/orderRoute.js";
+import router from "./routes/settingRoute.js";
 
 // app config
 
@@ -31,6 +32,7 @@ app.use("/images", express.static("uploads"))
 app.use("/api/user", userRouter)
 app.use("/api/cart", cartRouter)
 app.use("/api/order", orderRouter)
+app.use('/api', router)
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, "/frontend/dist")));

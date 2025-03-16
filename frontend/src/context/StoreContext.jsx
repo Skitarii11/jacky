@@ -8,6 +8,7 @@ const StoreContextProvider = (props) => {
     const url = process.env.REACT_APP_API_ENDPOINT;
     const [token, setToken] = useState("");
     const [food_list, setFoodList] = useState([]);
+    const [logoUrl, setLogoUrl] = useState('');
 
     const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
@@ -60,9 +61,22 @@ const StoreContextProvider = (props) => {
         }
     }
 
+    const fetchLogoUrl = async () => {
+        try {
+            const response = await axios.get(url + "/api/settings/settings");  // Your API endpoint
+            console.log("Logo response: ", response);
+            setLogoUrl(response.data.data.logoUrl);  // Access the logoUrl from the response
+        } catch (error) {
+            console.error("Error fetching logo URL:", error);
+            // Optionally, set a default logo URL here
+            setLogoUrl('/images/default-logo.png');  // Or use a placeholder
+        }
+    };
+
     useEffect(() => {
         async function loadData() {
             await fetchFoodList();
+            await fetchLogoUrl();
             if (localStorage.getItem("token")) {
                 setToken(localStorage.getItem("token"));
                 await loadCartdata(localStorage.getItem("token"));
@@ -80,7 +94,8 @@ const StoreContextProvider = (props) => {
         getTotalCartAmount,
         url,
         token,
-        setToken
+        setToken,
+        logoUrl
     }
 
     console.log('food_list in ContextValue:', food_list);
