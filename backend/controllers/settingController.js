@@ -30,10 +30,10 @@ const upload = multer({
 
 const getSettings = async (req, res) => {
     try {
-        let settings = await Setting.findOne({}); // Assuming only one settings document
+        let settings = await settingModel.findOne({}); // Assuming only one settings document
         if (!settings) {
             // If no settings exist, create a default one
-            settings = new Setting({ logoUrl: '/images/default-logo.png' });
+            settings = new settingModel({ logoUrl: '/images/default-logo.png' });
             await settings.save();
         }
         res.status(200).json({ success: true, data: settings });
@@ -53,7 +53,7 @@ const updateSettings = async (req, res) => {
         // Generate the image URL (using a local file path or a cloud storage URL)
         const logoUrl = `/uploads/${req.file.filename}`; // Example: Store the local file path in the database
 
-        const settings = await Setting.findOneAndUpdate(
+        const settings = await settingModel.findOneAndUpdate(
             {}, // Find the first document
             { logoUrl: logoUrl }, // Update the logo URL
             { upsert: true, new: true, setDefaultsOnInsert: true } // Create if it doesn't exist, return the updated document, and apply schema defaults
