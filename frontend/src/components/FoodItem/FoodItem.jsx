@@ -1,20 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./FoodItem.css";
 import { StoreContext } from "../../context/StoreContext";
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { cartItems, addToCart, removeFromCart, url } = useContext(StoreContext);
-  
-  const [isExpanded, setIsExpanded] = useState(false);
+  const { url } = useContext(StoreContext);
 
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
+  const handleItemClick = () => {
+    window.open(`/food/${id}`, '_blank', 'noopener,noreferrer'); // Open in new tab
   };
 
   return (
-    <div 
-      className={`food-item ${isExpanded ? "expanded" : ""}`}
-      onClick={toggleExpand}
+    <div
+      className="food-item"  // Remove expanded class logic from here
+      onClick={handleItemClick}
     >
       <div className="food-item-img-container">
         <img className="food-item-image" src={url + "/images/" + image} alt="" />
