@@ -1,5 +1,3 @@
-// AdminLogoSettings.jsx (Example component - adapt to your admin panel)
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AdminLogoSettings.css'
@@ -12,7 +10,8 @@ const AdminLogoSettings = ({url}) => {
         // Fetch the current logo URL when the component mounts
         const fetchLogo = async () => {
             try {
-                const response = await axios.get(url + "/api/settings/settings");
+                const response = await axios.get(url + "/api/settings");
+                console.log("GET logo settings response:",response);
                 setCurrentLogoUrl(response.data.data.logoUrl);
                 setNewLogoUrl(response.data.data.logoUrl);
             } catch (error) {
@@ -29,7 +28,7 @@ const AdminLogoSettings = ({url}) => {
             const token = localStorage.getItem('token'); // Or however you store the admin token
 
             const response = await axios.put(
-                url + "/api/settings/settings",
+                url + "/api/settings",
                 { logoUrl: newLogoUrl },
                 {
                     headers: {

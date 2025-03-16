@@ -20,6 +20,7 @@ const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 
 // db connect
 
