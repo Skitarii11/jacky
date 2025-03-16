@@ -6,7 +6,7 @@ import { StoreContext } from '../../context/StoreContext'
 import FoodItem from '../FoodItem/FoodItem'
 
 const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
-  const { getTotalCartAmount, token, setToken, food_list } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken, food_list, logoUrl } = useContext(StoreContext);
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
