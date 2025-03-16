@@ -63,7 +63,7 @@ const StoreContextProvider = (props) => {
 
     const fetchLogoUrl = async () => {
         try {
-            const response = await axios.get(url + "/api/settings/settings");  // Your API endpoint
+            const response = await axios.get(url + "/api/settings");  // Your API endpoint
             console.log("Logo response: ", response);
             setLogoUrl(response.data.data.logoUrl);  // Access the logoUrl from the response
         } catch (error) {
