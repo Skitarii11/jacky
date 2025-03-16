@@ -59,7 +59,7 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
           }}
           className={activeSection === "menu" ? "active" : ""}
         >
-          menu
+          Бүтээгдэхүүн
         </a>
 
         <a
@@ -70,7 +70,7 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
           }}
           className={activeSection === "contact-us" ? "active" : ""}
         >
-          contact us
+          Холбоо барих
         </a>
 
         <li className="search-container">
