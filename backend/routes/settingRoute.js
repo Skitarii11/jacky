@@ -4,6 +4,6 @@ import { getSettings, updateSettings, upload } from '../controllers/settingContr
 const router = express.Router();
 
 router.get('/settings', getSettings);
-router.put('/settings', upload, updateSettings);
+router.put('/settings', upload.single('logo'), updateSettings);
 
 export default router;
