@@ -66,7 +66,8 @@
 
 @media (max-width:500px){
     .explore-menu-list-item img{
-        width: 3vw;
-        height: 3vw;
+        min-width: none;
+        width: 7vw;
+        height: 7vw;
     }
 }
