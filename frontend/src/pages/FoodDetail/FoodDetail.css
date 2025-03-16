@@ -43,6 +43,7 @@
     font-size: 1.1em;
     line-height: 1.4;
     margin-bottom: 10px;
+    flex-wrap: wrap;
   }
   
   .food-detail-price {
