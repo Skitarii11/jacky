@@ -63,3 +63,10 @@
         font-size: 14px;
     }
 }
+
+@media (max-width:500px){
+    .explore-menu-list-item{
+        width: 3vw;
+        height: 3vw;
+    }
+}
