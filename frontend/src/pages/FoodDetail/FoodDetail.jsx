@@ -43,7 +43,7 @@ const FoodDetail = () => {
       <div className="product-info-section">
         <div className="product-header">
           <h2 className="product-model">Model: {foodItem.name}</h2>
-          <div className="product-price">${foodItem.price}</div>
+          {/* <div className="product-price">${foodItem.price}</div> */}
         </div>
 
         <div className="product-specs">
@@ -54,6 +54,18 @@ const FoodDetail = () => {
           <div className="spec-row">
             <div className="spec-label">Description:</div>
             <div className="spec-value">{foodItem.description}</div>
+          </div>
+          <div className="spec-row">
+            <div className="spec-label">Use:</div>
+            <div className="spec-value">{foodItem.use}</div>
+          </div>
+          <div className="spec-row">
+            <div className="spec-label">Specialty:</div>
+            <div className="spec-value">{foodItem.specialty}</div>
+          </div>
+          <div className="spec-row">
+            <div className="spec-label">Package:</div>
+            <div className="spec-value">{foodItem.pack}</div>
           </div>
           {/* Add more spec rows as needed */}
         </div>

@@ -11,6 +11,9 @@ const Add = ({url}) => {
     name: "",
     description: "",
     price: "",
+    use:"",
+    specialty:"",
+    pack:"",
     category: "categ 1"
   });
 
@@ -24,6 +27,9 @@ const Add = ({url}) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", data.name);
+    formData.append("use", data.use);
+    formData.append("specialty", data.specialty);
+    formData.append("pack", data.pack);
     formData.append("description", data.description);
     formData.append("price", Number(data.price));
     formData.append("category", data.category);
@@ -34,6 +40,9 @@ const Add = ({url}) => {
         name:"",
         description:"",
         price:"",
+        use:"",
+        specialty:"",
+        pack:"",
         category:"categ 1"
       })
       setImage(false)
@@ -56,6 +65,18 @@ const Add = ({url}) => {
         <div className="add-product-name flex-col">
           <p>Product name</p>
           <input onChange={onChangeHandler} value={data.name} type="text" name='name' placeholder='Type here' />
+        </div>
+        <div className="add-product-name flex-col">
+          <p>Use</p>
+          <input onChange={onChangeHandler} value={data.use} type="text" name='use' placeholder='Type here' />
+        </div>
+        <div className="add-product-name flex-col">
+          <p>Specialty</p>
+          <input onChange={onChangeHandler} value={data.specialty} type="text" name='specialty' placeholder='Type here' />
+        </div>
+        <div className="add-product-name flex-col">
+          <p>Package</p>
+          <input onChange={onChangeHandler} value={data.pack} type="text" name='pack' placeholder='Type here' />
         </div>
         <div className="add-product-description flex-col">
           <p>Product description</p>
