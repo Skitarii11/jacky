@@ -72,36 +72,36 @@ const Add = ({url}) => {
           <input onChange={(e)=>setImage(e.target.files[0])} type="file" id='image' hidden required />
         </div>
         <div className="add-product-name flex-col">
-          <p>Dimensions</p>
+          <p>Хэмжээ</p>
           <input onChange={onChangeHandler} value={data.dimension} type="text" name='dimension' placeholder='Type here' />
         </div>
         <div className="add-product-name flex-col">
-          <p>Product name</p>
+          <p>Нэр</p>
           <input onChange={onChangeHandler} value={data.name} type="text" name='name' placeholder='Type here' />
         </div>
         <div className="add-product-description flex-col">
-          <p>Use</p>
+          <p>Хэрэглээ</p>
           <textarea onChange={onChangeHandler} value={data.use} name="use" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-product-description flex-col">
-          <p>Specialty</p>
+          <p>Онцлог, давуу талууд</p>
           <textarea onChange={onChangeHandler} value={data.specialty} name="specialty" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-product-description flex-col">
-          <p>Pack</p>
+          <p>Багцын агуулга</p>
           <textarea onChange={onChangeHandler} value={data.pack} name="pack" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-product-description flex-col">
-          <p>Model detail</p>
+          <p>Загварын нэмэлт мэдээлэл</p>
           <textarea onChange={onChangeHandler} value={data.model_detail} name="model_detail" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-product-description flex-col">
-          <p>Product description</p>
+          <p>Тайлбар</p>
           <textarea onChange={onChangeHandler} value={data.description} name="description" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-category-price">
           <div className="add-category flex-col">
-            <p>Product category</p>
+            <p>Product category /Төрөл/</p>
             <select onChange={onChangeHandler} name="category">
               <option value="categ 1">categ 1</option>
               <option value="categ 2">categ 2</option>
@@ -114,11 +114,11 @@ const Add = ({url}) => {
             </select>
           </div>
           <div className="add-price flex-col">
-            <p>Product price</p>
+            <p>Үнэ</p>
             <input onChange={onChangeHandler} value={data.price} type="number" name='price' placeholder='20' required />
           </div>
           <div className="add-price flex-col">
-            <p>product Code Number</p>
+            <p>Барааны дугаар</p>
             <input onChange={onChangeHandler} value={data.code} type="number" name='code' placeholder='20' required />
           </div>
         </div>

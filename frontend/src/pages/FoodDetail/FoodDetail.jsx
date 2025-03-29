@@ -42,35 +42,35 @@ const FoodDetail = () => {
       {/* Product Info Section */}
       <div className="product-info-section">
         <div className="product-header">
-          <h2 className="product-model">Model: {foodItem.name}</h2>
-          <h2 className="product-model">Product Code: {foodItem.code}</h2>
-          <h2 className="product-model">Dimension: {foodItem.dimension}</h2>
+          <h2 className="product-model">Нэр: {foodItem.name}</h2>
+          <h2 className="product-model">Барааны дугаар: {foodItem.code}</h2>
+          <h2 className="product-model">Хэмжээ: {foodItem.dimension}</h2>
           {/* <div className="product-price">${foodItem.price}</div> */}
         </div>
 
         <div className="product-specs">
           <div className="spec-row">
-            <div className="spec-label">Category:</div>
+            <div className="spec-label">Төрөл:</div>
             <div className="spec-value">{foodItem.category}</div>
           </div>
           <div className="spec-row">
-            <div className="spec-label">Description:</div>
+            <div className="spec-label">Тайлбар:</div>
             <div className="spec-value">{foodItem.description}</div>
           </div>
           <div className="spec-row">
-            <div className="spec-label">Use:</div>
+            <div className="spec-label">Хэрэглээ:</div>
             <div className="spec-value">{foodItem.use}</div>
           </div>
           <div className="spec-row">
-            <div className="spec-label">Specialty:</div>
+            <div className="spec-label">Онцлог, давуу талууд:</div>
             <div className="spec-value">{foodItem.specialty}</div>
           </div>
           <div className="spec-row">
-            <div className="spec-label">Package:</div>
+            <div className="spec-label">Багцын агуулга:</div>
             <div className="spec-value">{foodItem.pack}</div>
           </div>
           <div className="spec-row">
-            <div className="spec-label">Model Detail:</div>
+            <div className="spec-label">Загварын нэмэлт мэдээлэл:</div>
             <div className="spec-value">{foodItem.model_detail}</div>
           </div>
           {/* Add more spec rows as needed */}
