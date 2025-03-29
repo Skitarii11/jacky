@@ -67,6 +67,10 @@ const FoodDetail = () => {
             <div className="spec-label">Package:</div>
             <div className="spec-value">{foodItem.pack}</div>
           </div>
+          <div className="spec-row">
+            <div className="spec-label">Model Detail:</div>
+            <div className="spec-value">{foodItem.model_detail}</div>
+          </div>
           {/* Add more spec rows as needed */}
         </div>
       </div>
