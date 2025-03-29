@@ -49,7 +49,7 @@ const FoodDetail = () => {
         <div className="product-specs">
           <div className="spec-row">
             <div className="spec-label">Category:</div>
-            <div className="spec-value">Food</div>
+            <div className="spec-value">{foodItem.category}</div>
           </div>
           <div className="spec-row">
             <div className="spec-label">Description:</div>
