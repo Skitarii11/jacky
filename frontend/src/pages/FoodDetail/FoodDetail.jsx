@@ -59,7 +59,13 @@ const FoodDetail = () => {
           </div>
           <div className="spec-row">
             <div className="spec-label">Хэрэглээ:</div>
-            <div className="spec-value">{foodItem.use}</div>
+            <div className="spec-value">
+              {foodItem.use.split(',').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line.trim()}
+                  {index < foodItem.specialty.split(',').length - 1 && <br />}
+                </React.Fragment>
+              ))}</div>
           </div>
           <div className="spec-row">
             <div className="spec-label">Онцлог, давуу талууд:</div>
@@ -74,7 +80,13 @@ const FoodDetail = () => {
           </div>
           <div className="spec-row">
             <div className="spec-label">Багцын агуулга:</div>
-            <div className="spec-value">{foodItem.pack}</div>
+            <div className="spec-value">
+              {foodItem.pack.split(',').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line.trim()}
+                  {index < foodItem.specialty.split(',').length - 1 && <br />}
+                </React.Fragment>
+              ))}</div>
           </div>
           <div className="spec-row">
             <div className="spec-label">Загварын нэмэлт мэдээлэл:</div>
