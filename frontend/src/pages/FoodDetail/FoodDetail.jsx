@@ -57,15 +57,6 @@ const FoodDetail = () => {
           </div>
           {/* Add more spec rows as needed */}
         </div>
-
-        <div className="product-options">
-          <h3 className="options-title">Available Options</h3>
-          <div className="quantity-selector">
-            <label htmlFor="quantity">Quantity:</label>
-            <input type="number" id="quantity" min="1" defaultValue="1" />
-          </div>
-          <button className="add-to-cart-btn">Add to Cart</button>
-        </div>
       </div>
     </div>
   );
