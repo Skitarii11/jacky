@@ -63,7 +63,7 @@ const FoodDetail = () => {
               {foodItem.use.split(',').map((line, index) => (
                 <React.Fragment key={index}>
                   {line.trim()}
-                  {index < foodItem.specialty.split(',').length - 1 && <br />}
+                  {index < foodItem.use.split(',').length - 1 && <br />}
                 </React.Fragment>
               ))}</div>
           </div>
@@ -84,7 +84,7 @@ const FoodDetail = () => {
               {foodItem.pack.split(',').map((line, index) => (
                 <React.Fragment key={index}>
                   {line.trim()}
-                  {index < foodItem.specialty.split(',').length - 1 && <br />}
+                  {index < foodItem.pack.split(',').length - 1 && <br />}
                 </React.Fragment>
               ))}</div>
           </div>
