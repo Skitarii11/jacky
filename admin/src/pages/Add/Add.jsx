@@ -15,6 +15,8 @@ const Add = ({url}) => {
     specialty:"",
     pack:"",
     model_detail:"",
+    code:"",
+    dimension:"",
     category: "categ 1"
   });
 
@@ -31,9 +33,11 @@ const Add = ({url}) => {
     formData.append("use", data.use);
     formData.append("specialty", data.specialty);
     formData.append("pack", data.pack);
+    formData.append("dimension", data.dimension);
     formData.append("model_detail", data.model_detail);
     formData.append("description", data.description);
     formData.append("price", Number(data.price));
+    formData.append("code", Number(data.code));
     formData.append("category", data.category);
     formData.append("image", image);
     const response = await axios.post(`${url}/api/food/add`, formData);
@@ -46,6 +50,8 @@ const Add = ({url}) => {
         specialty:"",
         pack:"",
         model_detail:"",
+        code:"",
+        dimension:"",
         category:"categ 1"
       })
       setImage(false)
@@ -64,6 +70,10 @@ const Add = ({url}) => {
             <img src={image?URL.createObjectURL(image):assets.upload_area} alt="" />
           </label>
           <input onChange={(e)=>setImage(e.target.files[0])} type="file" id='image' hidden required />
+        </div>
+        <div className="add-product-name flex-col">
+          <p>Dimensions</p>
+          <input onChange={onChangeHandler} value={data.dimension} type="text" name='dimension' placeholder='Type here' />
         </div>
         <div className="add-product-name flex-col">
           <p>Product name</p>
@@ -106,6 +116,10 @@ const Add = ({url}) => {
           <div className="add-price flex-col">
             <p>Product price</p>
             <input onChange={onChangeHandler} value={data.price} type="number" name='price' placeholder='20' required />
+          </div>
+          <div className="add-price flex-col">
+            <p>product Code Number</p>
+            <input onChange={onChangeHandler} value={data.code} type="number" name='price' placeholder='20' required />
           </div>
         </div>
         <button type='submit' className='add-btn'>ADD</button>

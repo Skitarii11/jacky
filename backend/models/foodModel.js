@@ -9,6 +9,8 @@ const foodSchema = new mongoose.Schema({
     use: {type:String, required:true},
     specialty: {type:String, required:true},
     model_detail: {type:String, required:true},
+    code : {type:Number, required:true},
+    dimension: {type:String, required:true},
     pack: {type:String, required:true}
     
 })
