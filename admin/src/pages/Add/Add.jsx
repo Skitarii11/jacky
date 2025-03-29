@@ -14,6 +14,7 @@ const Add = ({url}) => {
     use:"",
     specialty:"",
     pack:"",
+    model_detail:"",
     category: "categ 1"
   });
 
@@ -30,6 +31,7 @@ const Add = ({url}) => {
     formData.append("use", data.use);
     formData.append("specialty", data.specialty);
     formData.append("pack", data.pack);
+    formData.append("model_detail", data.model_detail);
     formData.append("description", data.description);
     formData.append("price", Number(data.price));
     formData.append("category", data.category);
@@ -43,6 +45,7 @@ const Add = ({url}) => {
         use:"",
         specialty:"",
         pack:"",
+        model_detail:"",
         category:"categ 1"
       })
       setImage(false)
@@ -66,17 +69,21 @@ const Add = ({url}) => {
           <p>Product name</p>
           <input onChange={onChangeHandler} value={data.name} type="text" name='name' placeholder='Type here' />
         </div>
-        <div className="add-product-name flex-col">
+        <div className="add-product-description flex-col">
           <p>Use</p>
-          <input onChange={onChangeHandler} value={data.use} type="text" name='use' placeholder='Type here' />
+          <textarea onChange={onChangeHandler} value={data.use} name="use" rows="6" placeholder='Write content here' required></textarea>
         </div>
-        <div className="add-product-name flex-col">
+        <div className="add-product-description flex-col">
           <p>Specialty</p>
-          <input onChange={onChangeHandler} value={data.specialty} type="text" name='specialty' placeholder='Type here' />
+          <textarea onChange={onChangeHandler} value={data.specialty} name="specialty" rows="6" placeholder='Write content here' required></textarea>
         </div>
-        <div className="add-product-name flex-col">
-          <p>Package</p>
-          <input onChange={onChangeHandler} value={data.pack} type="text" name='pack' placeholder='Type here' />
+        <div className="add-product-description flex-col">
+          <p>Pack</p>
+          <textarea onChange={onChangeHandler} value={data.pack} name="pack" rows="6" placeholder='Write content here' required></textarea>
+        </div>
+        <div className="add-product-description flex-col">
+          <p>Model detail</p>
+          <textarea onChange={onChangeHandler} value={data.model_detail} name="model_detail" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-product-description flex-col">
           <p>Product description</p>

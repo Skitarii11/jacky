@@ -15,6 +15,7 @@ const addFood = async (req,res)=> {
         use: req.body.use,
         specialty: req.body.specialty,
         pack: req.body.pack,
+        model_detail: req.body.model,
         image: image_filename
     })
     try {

@@ -8,6 +8,7 @@ const foodSchema = new mongoose.Schema({
     image : {type:String, required:true},
     use: {type:String, required:true},
     specialty: {type:String, required:true},
+    model_detail: {type:String, required:true},
     pack: {type:String, required:true}
     
 })
