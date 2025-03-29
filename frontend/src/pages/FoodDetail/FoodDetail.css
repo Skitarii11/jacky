@@ -61,7 +61,6 @@
 .product-header {
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 1px solid grey;
 }
 
 .product-model {
@@ -84,7 +83,7 @@
 .spec-row {
   display: flex;
   padding: 8px 0;
-  border-bottom: 1px solid grey;
+  border-top: 1px solid grey;
 }
 
 .spec-label {

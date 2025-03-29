@@ -54,10 +54,6 @@ const FoodDetail = () => {
             <div className="spec-value">{foodItem.category}</div>
           </div>
           <div className="spec-row">
-            <div className="spec-label">Code:</div>
-            <div className="spec-value">{foodItem.code}</div>
-          </div>
-          <div className="spec-row">
             <div className="spec-label">Description:</div>
             <div className="spec-value">{foodItem.description}</div>
           </div>
