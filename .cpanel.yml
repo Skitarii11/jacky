@@ -12,20 +12,17 @@ deployment:
     # Install dependencies listed in the root package.json (which seems to be for the backend)
     - cd $DEPLOYPATH
     - npm install --production # Use --production to skip devDependencies like nodemon
-    - npm audit fix
 
     # --- Frontend Build ---
     # Install dependencies and build the frontend app
     - cd $DEPLOYPATH/frontend
     - npm install       # Install dependencies needed for the build process
-    - npm audit fix --force
     - npm run build     # This command should create the 'frontend/dist' folder
 
     # --- Admin Build ---
     # Install dependencies and build the admin app
     - cd $DEPLOYPATH/admin
     - npm install       # Install dependencies needed for the build process
-    - npm audit fix --force
     - npm run build     # This command should create the 'admin/dist' folder
 
     # --- NO COPYING NEEDED ---
