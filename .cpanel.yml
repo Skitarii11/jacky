@@ -2,7 +2,7 @@
 deployment:
   tasks:
     # Define the deployment path (matches your cPanel Git Repository Path)
-    - export DEPLOYPATH=/home/nassomn/public_html
+    - export DEPLOYPATH=/home/nasosmn/repositories/nasos
 
     # (Optional but sometimes needed) Add Node.js to PATH for the deployment script
     # Check your Node.js version and path in cPanel's Setup Node.js App or via SSH (`which node`)
