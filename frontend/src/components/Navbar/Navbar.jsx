@@ -12,8 +12,6 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu toggle
 
-  console.log("Search results state:", searchResults);
-
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
@@ -23,14 +21,12 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
-    console.log("Search term changing:", term);
     setSearchTerm(term);
 
     if (term) {
       const results = food_list.filter(item =>
         item.name.toLowerCase().includes(term.toLowerCase())
       );
-      console.log("Filtered results:", results);
       setSearchResults(results);
     } else {
       setSearchResults([]); // Clear results when search term is empty
@@ -110,14 +106,18 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
             onChange={handleSearchChange}
           />
           {searchResults.length > 0 && (
-                <div className="search-results">
-                {searchResults.map(item => (
-                    // <FoodItem ... /> // Temporarily comment out
-                    <div key={item.id} style={{ border: '1px solid red', padding: '5px' }}>
-                        {item.name} - {item.price}
-                    </div> // Replace with simple div
-                ))}
-                </div>
+            <div className="search-results">
+              {searchResults.map(item => (
+                <FoodItem
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  description={item.description}
+                  image={item.image}
+                />
+              ))}
+            </div>
           )}
         </li>
       </ul>
