@@ -59,40 +59,52 @@ const FoodDetail = () => {
         </div>
 
         <div className="product-specs">
+          <div className="spec-label">Техникийн үзүүлэлт</div>
           <div className="spec-row">
-            <div className="spec-label">Хэрэглээ:</div>
+            <div className="spec-label">Цахилгаан хүчдэл:</div>
             <div className="spec-value">
-              {foodItem.use.split(',').map((line, index) => (
-                <React.Fragment key={index}>
-                  {line.trim()}
-                  {index < foodItem.use.split(',').length - 1 && <br />}
-                </React.Fragment>
-              ))}</div>
-          </div>
-          <div className="spec-row">
-            <div className="spec-label">Онцлог, давуу талууд:</div>
-            <div className="spec-value">
-              {foodItem.specialty.split(',').map((line, index) => (
-                <React.Fragment key={index}>
-                  {line.trim()}
-                  {index < foodItem.specialty.split(',').length - 1 && <br />}
-                </React.Fragment>
-              ))}
+              {foodItem.use}
             </div>
           </div>
           <div className="spec-row">
-            <div className="spec-label">Багцын агуулга:</div>
+            <div className="spec-label">Хүчдлийн зөвшөөрөгдөх хазайлт:</div>
             <div className="spec-value">
-              {foodItem.pack.split(',').map((line, index) => (
-                <React.Fragment key={index}>
-                  {line.trim()}
-                  {index < foodItem.pack.split(',').length - 1 && <br />}
-                </React.Fragment>
-              ))}</div>
+              {foodItem.specialty}
+            </div>
           </div>
           <div className="spec-row">
-            <div className="spec-label">Загварын нэмэлт мэдээлэл:</div>
+            <div className="spec-label">Чадал P2:</div>
+            <div className="spec-value">
+              {foodItem.pack}
+            </div>
+          </div>
+          <div className="spec-row">
+            <div className="spec-label">Моторын АҮК ангилал:</div>
             <div className="spec-value">{foodItem.model_detail}</div>
+          </div>
+          <div className="spec-row">
+            <div className="spec-label">Хөдөлгүүрийн асаалт:</div>
+            <div className="spec-value">{foodItem.asaalt}</div>
+          </div>
+          <div className="spec-row">
+            <div className="spec-label">Гүйдлийн хүч IN:</div>
+            <div className="spec-value">{foodItem.guidel}</div>
+          </div>
+          <div className="spec-row">
+            <div className="spec-label">Хөдөлгүүрийн хурд n:</div>
+            <div className="spec-value">{foodItem.hurd}</div>
+          </div>
+          <div className="spec-row">
+            <div className="spec-label">Чадлын фактор cos φ100:</div>
+            <div className="spec-value">{foodItem.chadal}</div>
+          </div>
+          <div className="spec-row">
+            <div className="spec-label">Моторын АҮК 75% ηM 75%:</div>
+            <div className="spec-value">{foodItem.motor75}</div>
+          </div>
+          <div className="spec-row">
+            <div className="spec-label">Моторын АҮК 100% ηM 100%:</div>
+            <div className="spec-value">{foodItem.motor100}</div>
           </div>
           {/* Add more spec rows as needed */}
         </div>

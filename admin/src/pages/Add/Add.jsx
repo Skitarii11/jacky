@@ -18,6 +18,12 @@ const Add = ({url}) => {
     code:"",
     dimension:"",
     turelt:"",
+    asaalt:"",
+    guidel:"",
+    hurd:"",
+    chadal:"",
+    motor75:"",
+    motor100:"",
     category: "Хувийн АОС-ны цэвэр усны өргөлтийн насос"
   });
 
@@ -41,6 +47,12 @@ const Add = ({url}) => {
     formData.append("code", data.code);
     formData.append("turelt", data.turelt);
     formData.append("category", data.category);
+    formData.append("asaalt", data.asaalt);
+    formData.append("guidel", data.guidel);
+    formData.append("hurd", data.hurd);
+    formData.append("chadal", data.chadal);
+    formData.append("motor75", data.motor75);
+    formData.append("motor100", data.motor100);
     formData.append("image", image);
     const response = await axios.post(`${url}/api/food/add`, formData);
     if(response.data.success) {
@@ -54,7 +66,12 @@ const Add = ({url}) => {
         model_detail:"",
         code:"",
         dimension:"",
-        turelt:"",
+        turelt:"",asaalt:"",
+        guidel:"",
+        hurd:"",
+        chadal:"",
+        motor75:"",
+        motor100:"",
         category:"Хувийн АОС-ны цэвэр усны өргөлтийн насос"
       })
       setImage(false)
@@ -86,20 +103,44 @@ const Add = ({url}) => {
           <p>Түрэлт</p>
           <input onChange={onChangeHandler} value={data.turelt} type="text" name='turelt' placeholder='Type here' />
         </div>
+        <div className="add-product-name flex-col">
+          <p>Хөдөлгүүрийн асаалт</p>
+          <input onChange={onChangeHandler} value={data.asaalt} type="text" name='asaalt' placeholder='Type here' />
+        </div>
+        <div className="add-product-name flex-col">
+          <p>Гүйдлийн хүч IN</p>
+          <input onChange={onChangeHandler} value={data.guidel} type="text" name='guidel' placeholder='Type here' />
+        </div>
+        <div className="add-product-name flex-col">
+          <p>Хөдөлгүүрийн хурд n</p>
+          <input onChange={onChangeHandler} value={data.hurd} type="text" name='hurd' placeholder='Type here' />
+        </div>
+        <div className="add-product-name flex-col">
+          <p>Чадлын фактор cos φ100</p>
+          <input onChange={onChangeHandler} value={data.chadal} type="text" name='chadal' placeholder='Type here' />
+        </div>
+        <div className="add-product-name flex-col">
+          <p>Моторын АҮК 75% ηM 75%</p>
+          <input onChange={onChangeHandler} value={data.motor75} type="text" name='motor75' placeholder='Type here' />
+        </div>
+        <div className="add-product-name flex-col">
+          <p>Моторын АҮК 100% ηM 100%</p>
+          <input onChange={onChangeHandler} value={data.motor100} type="text" name='motor100' placeholder='Type here' />
+        </div>
         <div className="add-product-description flex-col">
-          <p>Хэрэглээ</p>
+          <p>Цахилгаан хүчдэл</p>
           <textarea onChange={onChangeHandler} value={data.use} name="use" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-product-description flex-col">
-          <p>Онцлог, давуу талууд</p>
+          <p>Хүчдлийн зөвшөөрөгдөх хазайлт</p>
           <textarea onChange={onChangeHandler} value={data.specialty} name="specialty" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-product-description flex-col">
-          <p>Багцын агуулга</p>
+          <p>Чадал P2</p>
           <textarea onChange={onChangeHandler} value={data.pack} name="pack" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-product-description flex-col">
-          <p>Загварын нэмэлт мэдээлэл</p>
+          <p>Моторын АҮК ангилал</p>
           <textarea onChange={onChangeHandler} value={data.model_detail} name="model_detail" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-product-description flex-col">

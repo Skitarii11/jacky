@@ -19,6 +19,12 @@ const addFood = async (req,res)=> {
         code: req.body.code,
         dimension: req.body.dimension,
         turelt: req.body.turelt,
+        asaalt: req.body.asaalt,
+        guidel: req.body.guidel,
+        hurd: req.body.hurd,
+        chadal: req.body.chadal,
+        motor75: req.body.motor75,
+        motor100: req.body.motor100,
         image: image_filename
     })
     try {

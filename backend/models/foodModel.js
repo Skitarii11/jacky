@@ -12,6 +12,12 @@ const foodSchema = new mongoose.Schema({
     code : {type:Number, required:true},
     dimension: {type:String, required:true},
     turelt: {type:String, required:true},
+    asaalt: {type:String, required:true},
+    guidel: {type:String, required:true},
+    hurd: {type:String, required:true},
+    chadal: {type:String, required:true},
+    motor75: {type:String, required:true},
+    motor100: {type:String, required:true},
     pack: {type:String, required:true}
     
 })
