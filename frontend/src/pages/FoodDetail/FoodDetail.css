@@ -86,6 +86,10 @@
   border-top: 1px solid grey;
 }
 
+.descr {
+  border-top: none;
+}
+
 .spec-label {
   flex: 0 0 30%;
   font-weight: bold;

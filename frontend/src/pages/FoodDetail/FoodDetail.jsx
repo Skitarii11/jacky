@@ -43,14 +43,19 @@ const FoodDetail = () => {
       <div className="product-info-section">
         <div className="product-header">
           <h2 className="product-model">Төрөл: {foodItem.category}</h2>
-          <div className="spec-row">
+          <div className="spec-row descr">
             <div className="spec-label">Тайлбар:</div>
-            <div className="spec-value">{foodItem.description}</div>
+            <div className="spec-value">
+              {foodItem.description.split(',').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line.trim()}
+                  {index < foodItem.description.split(',').length - 1 && <br />}
+                </React.Fragment>
+              ))}</div>
           </div>
           <h2 className="product-model">Түрэлт: {foodItem.turelt}</h2>
           <h2 className="product-model">Бүтээл: {foodItem.code}</h2>
           <h2 className="product-model">Шахах шингэний температур: {foodItem.dimension}</h2>
-          {/* <div className="product-price">${foodItem.price}</div> */}
         </div>
 
         <div className="product-specs">
