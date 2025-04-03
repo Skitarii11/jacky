@@ -142,7 +142,7 @@
 
 /* Right Section (Cart/Login/Profile) */
 .navbar-right {
-    display: flex; /* Keep using flex */
+    display: none;
     align-items: center;
     gap: 20px; /* Adjust gap as needed */
 }
