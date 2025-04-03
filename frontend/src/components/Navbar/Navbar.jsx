@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react'; // Import useEffect, useRef
+import React, { useContext, useState } from 'react';
 import './Navbar.css';
 import { assets } from '../../assets/assets';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,9 +10,7 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile dropdown
-  const mobileMenuRef = useRef(null); // Ref for click outside detection
-  const hamburgerRef = useRef(null); // Ref for hamburger button
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu toggle
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -35,42 +33,25 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
     }
   };
 
-  const handleLinkClick = (section) => {
+  const handleMobileLinkClick = (section) => {
     setActiveSection(section);
-    setIsMobileMenuOpen(false); // Close menu when a link is clicked
+    setIsMobileMenuOpen(false); // Close menu after clicking a link
   };
 
-  // Click outside to close mobile menu
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target) &&
-        hamburgerRef.current &&
-        !hamburgerRef.current.contains(event.target) // Also check if click was not on the hamburger itself
-        ) {
-        setIsMobileMenuOpen(false);
-      }
-    }
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [mobileMenuRef, hamburgerRef]);
-
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <div className='navbar'>
-      {/* Logo/Name */}
+      {/* Logo */}
       <a
         href='#'
         onClick={(e) => {
-          e.preventDefault();
-          handleLinkClick("home");
+          e.preventDefault(); // Prevent jump
+          handleMobileLinkClick("home"); // Use handler to also close menu
         }}
-        className={`navbar-logo-link ${activeSection === "home" ? "active" : ""}`}
+        className={`navbar-logo-link ${activeSection === "home" ? "active" : ""}`} // Added class for potential targeting
       >
         {logoUrl ? (
           <img src={logoUrl} alt="Logo" className="logo-image" />
@@ -79,106 +60,86 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
         )}
       </a>
 
-      {/* --- Desktop Menu Items (Hidden on Mobile) --- */}
-      <ul className="navbar-menu desktop-menu">
+      {/* --- Mobile Menu Toggle Button --- */}
+      {/* This button is only displayed on small screens via CSS */}
+      <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+        {/* Simple text or use an icon font/SVG */}
+        ☰
+      </button>
+
+      {/* Main Menu UL - Add 'open' class when mobile menu is active */}
+      {/* We also add 'has-mobile-controls' for CSS targeting */}
+      <ul className={`navbar-menu ${isMobileMenuOpen ? 'open' : ''} has-mobile-controls`}>
+
+        {/* --- Links to be toggled on mobile --- */}
+        {/* Added 'main-nav-link' class for CSS targeting */}
         <a
-            href='#'
-            onClick={(e) => { e.preventDefault(); handleLinkClick(activeSection === "menu" ? "home" : "menu"); }}
-            className={`menu-item-desktop ${activeSection === "menu" ? "active" : ""}`}
+          href='#'
+          onClick={(e) => {
+            e.preventDefault();
+            handleMobileLinkClick(activeSection === "menu" ? "home" : "menu");
+          }}
+          className={`main-nav-link ${activeSection === "menu" ? "active" : ""}`}
         >
-            Бүтээгдэхүүн
+          Бүтээгдэхүүн
         </a>
+
         <a
-            href='#'
-            onClick={(e) => { e.preventDefault(); handleLinkClick("contact-us"); }}
-            className={`menu-item-desktop ${activeSection === "contact-us" ? "active" : ""}`}
+          href='#'
+          onClick={(e) => {
+            e.preventDefault();
+            handleMobileLinkClick("contact-us");
+          }}
+          className={`main-nav-link ${activeSection === "contact-us" ? "active" : ""}`}
         >
-            Холбоо барих
+          Холбоо барих
         </a>
+
+        {/* --- Search Container --- */}
+        {/* This LI will be positioned differently on mobile via CSS */}
+        <li className="search-container">
+          <input
+            type="text"
+            className='search'
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          {searchResults.length > 0 && (
+            <div className="search-results">
+              {searchResults.map(item => (
+                <FoodItem
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  description={item.description}
+                  image={item.image}
+                />
+              ))}
+            </div>
+          )}
+        </li>
       </ul>
 
-      {/* --- Search Bar and Mobile Menu Trigger Container --- */}
-      <div className="navbar-middle">
-         {/* Search Bar (Always visible for now, but styled differently on mobile) */}
-         <div className="search-container"> {/* Changed li to div for semantics */}
-            <input
-              type="text"
-              className='search'
-              placeholder="Search products..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            {/* Consider conditionally rendering search results based on focus/interaction */}
-            {searchTerm && searchResults.length > 0 && (
-              <div className="search-results">
-                {searchResults.map(item => (
-                  <FoodItem
-                    key={item.id} // Use item.id if unique, otherwise item._id
-                    id={item.id || item._id}
-                    name={item.name}
-                    price={item.price}
-                    description={item.description}
-                    image={item.image}
-                  />
-                ))}
-              </div>
-            )}
-         </div>
-
-         {/* Hamburger Menu Button (Visible only on Mobile) */}
-         <button
-            ref={hamburgerRef}
-            className="hamburger-icon"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu" // Accessibility
-            aria-expanded={isMobileMenuOpen} // Accessibility
-         >
-            ☰ {/* You can replace this with an icon component/SVG */}
-         </button>
-
-         {/* --- Mobile Dropdown Menu (Conditionally Rendered) --- */}
-         {isMobileMenuOpen && (
-            <div ref={mobileMenuRef} className="mobile-menu">
-                 <a
-                    href='#'
-                    onClick={(e) => { e.preventDefault(); handleLinkClick(activeSection === "menu" ? "home" : "menu"); }}
-                    className={activeSection === "menu" ? "active" : ""}
-                >
-                    Бүтээгдэхүүн
-                </a>
-                <a
-                    href='#'
-                    onClick={(e) => { e.preventDefault(); handleLinkClick("contact-us"); }}
-                    className={activeSection === "contact-us" ? "active" : ""}
-                >
-                    Холбоо барих
-                </a>
-                {/* Optionally move cart/login here on mobile if needed */}
-            </div>
-         )}
-      </div>
-
-
-      {/* --- Right Section (Cart, Login/Profile) --- */}
+      {/* Right side elements remain unchanged */}
       <div className="navbar-right">
-        <div className="navbar-search-icon"> {/* Kept this div wrapper for the dot */}
-          <Link to='/cart' onClick={() => setIsMobileMenuOpen(false)}>
-            <img src={assets.basket_icon} alt="Cart" />
-          </Link>
+        <div className="navbar-search-icon">
+          <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
         {!token ? (
-          <button onClick={() => {setShowLogin(true); setIsMobileMenuOpen(false);}}>sign in</button>
+          <button onClick={() => setShowLogin(true)}>sign in</button>
         ) : (
           <div className='navbar-profile'>
-            <img src={assets.profile_icon} alt="Profile" />
+            <img src={assets.profile_icon} alt="" />
             <ul className="nav-profile-dropdown">
-              <li onClick={() => {navigate('/myorders'); setIsMobileMenuOpen(false);}}>
+              <li onClick={() => navigate('/myorders')}>
                 <img src={assets.bag_icon} alt="" />
                 <p>Orders</p>
               </li>
               <hr />
-              <li onClick={logout}> {/* Logout already closes menu */}
+              <li onClick={logout}>
                 <img src={assets.logout_icon} alt="" />
                 <p>Logout</p>
               </li>
