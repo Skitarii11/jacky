@@ -90,14 +90,22 @@
   border-top: none;
 }
 
+.tlb {
+  flex: 0 0 30%
+}
+
+.tlbv {
+  flex: 0 0 70%
+}
+
 .spec-label {
-  flex: 0 0 30%;
+  flex: 0 0 50%;
   font-weight: bold;
   color: #555;
 }
 
 .spec-value {
-  flex: 0 0 70%;
+  flex: 0 0 50%;
   color: #333;
 }
 
@@ -158,11 +166,11 @@
   }
   
   .spec-label {
-    flex: 0 0 40%;
+    flex: 0 0 50%;
   }
   
   .spec-value {
-    flex: 0 0 60%;
+    flex: 0 0 50%;
   }
 }
 
@@ -189,7 +197,7 @@
   
   .spec-label, 
   .spec-value {
-    flex: 0 0 100%;
+    flex: 0 0 50%;
   }
   
   .spec-label {

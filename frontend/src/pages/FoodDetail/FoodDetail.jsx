@@ -44,8 +44,8 @@ const FoodDetail = () => {
         <div className="product-header">
           <h2 className="product-model">Төрөл: {foodItem.category}</h2>
           <div className="spec-row descr">
-            <div className="spec-label">Тайлбар:</div>
-            <div className="spec-value">
+            <div className="spec-label tlb">Тайлбар:</div>
+            <div className="spec-value tlbv">
               {foodItem.description.split(',').map((line, index) => (
                 <React.Fragment key={index}>
                   {line.trim()}
