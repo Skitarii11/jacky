@@ -11,6 +11,7 @@ const foodSchema = new mongoose.Schema({
     model_detail: {type:String, required:true},
     code : {type:Number, required:true},
     dimension: {type:String, required:true},
+    turelt: {type:String, required:true},
     pack: {type:String, required:true}
     
 })

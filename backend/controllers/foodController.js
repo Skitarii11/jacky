@@ -18,6 +18,7 @@ const addFood = async (req,res)=> {
         model_detail: req.body.model_detail,
         code: req.body.code,
         dimension: req.body.dimension,
+        turelt: req.body.turelt,
         image: image_filename
     })
     try {

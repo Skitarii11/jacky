@@ -42,21 +42,18 @@ const FoodDetail = () => {
       {/* Product Info Section */}
       <div className="product-info-section">
         <div className="product-header">
-          <h2 className="product-model">Нэр: {foodItem.name}</h2>
-          <h2 className="product-model">Барааны дугаар: {foodItem.code}</h2>
-          <h2 className="product-model">Хэмжээ: {foodItem.dimension}</h2>
-          {/* <div className="product-price">${foodItem.price}</div> */}
-        </div>
-
-        <div className="product-specs">
-          <div className="spec-row">
-            <div className="spec-label">Төрөл:</div>
-            <div className="spec-value">{foodItem.category}</div>
-          </div>
+          <h2 className="product-model">Төрөл: {foodItem.category}</h2>
           <div className="spec-row">
             <div className="spec-label">Тайлбар:</div>
             <div className="spec-value">{foodItem.description}</div>
           </div>
+          <h2 className="product-model">Түрэлт: {foodItem.turelt}</h2>
+          <h2 className="product-model">Бүтээл: {foodItem.code}</h2>
+          <h2 className="product-model">Шахах шингэний температур: {foodItem.dimension}</h2>
+          {/* <div className="product-price">${foodItem.price}</div> */}
+        </div>
+
+        <div className="product-specs">
           <div className="spec-row">
             <div className="spec-label">Хэрэглээ:</div>
             <div className="spec-value">

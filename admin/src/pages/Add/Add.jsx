@@ -17,7 +17,8 @@ const Add = ({url}) => {
     model_detail:"",
     code:"",
     dimension:"",
-    category: "categ 1"
+    turelt:"",
+    category: "Хувийн АОС-ны цэвэр усны өргөлтийн насос"
   });
 
   const onChangeHandler = (event) => {
@@ -37,7 +38,8 @@ const Add = ({url}) => {
     formData.append("model_detail", data.model_detail);
     formData.append("description", data.description);
     formData.append("price", Number(data.price));
-    formData.append("code", Number(data.code));
+    formData.append("code", data.code);
+    formData.append("turelt", data.turelt);
     formData.append("category", data.category);
     formData.append("image", image);
     const response = await axios.post(`${url}/api/food/add`, formData);
@@ -52,7 +54,8 @@ const Add = ({url}) => {
         model_detail:"",
         code:"",
         dimension:"",
-        category:"categ 1"
+        turelt:"",
+        category:"Хувийн АОС-ны цэвэр усны өргөлтийн насос"
       })
       setImage(false)
       toast.success(response.data.message)
@@ -72,12 +75,16 @@ const Add = ({url}) => {
           <input onChange={(e)=>setImage(e.target.files[0])} type="file" id='image' hidden required />
         </div>
         <div className="add-product-name flex-col">
-          <p>Хэмжээ</p>
+          <p>Шахах шингэний температур</p>
           <input onChange={onChangeHandler} value={data.dimension} type="text" name='dimension' placeholder='Type here' />
         </div>
         <div className="add-product-name flex-col">
           <p>Нэр</p>
           <input onChange={onChangeHandler} value={data.name} type="text" name='name' placeholder='Type here' />
+        </div>
+        <div className="add-product-name flex-col">
+          <p>Түрэлт</p>
+          <input onChange={onChangeHandler} value={data.turelt} type="text" name='turelt' placeholder='Type here' />
         </div>
         <div className="add-product-description flex-col">
           <p>Хэрэглээ</p>
@@ -117,9 +124,9 @@ const Add = ({url}) => {
             <p>Үнэ</p>
             <input onChange={onChangeHandler} value={data.price} type="number" name='price' placeholder='20' required />
           </div>
-          <div className="add-price flex-col">
-            <p>Барааны дугаар</p>
-            <input onChange={onChangeHandler} value={data.code} type="number" name='code' placeholder='20' required />
+          <div className="add-product-name flex-col">
+            <p>Бүтээл</p>
+            <input onChange={onChangeHandler} value={data.code} type="text" name='code' placeholder='type here' required />
           </div>
         </div>
         <button type='submit' className='add-btn'>ADD</button>
