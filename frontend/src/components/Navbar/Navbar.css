@@ -86,10 +86,11 @@
     border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
+    margin-left: 15px;
   }
   
   .navbar button:hover{
-    background: tomato;
+    background: #49557e;
     color: white;
   }
   
