@@ -1,0 +1,39 @@
+---
+deployment:
+  tasks:
+    # Define the deployment path (matches your cPanel Git Repository Path)
+    - export DEPLOYPATH=/home/nassomn/public_html
+
+    # (Optional but sometimes needed) Add Node.js to PATH for the deployment script
+    # Check your Node.js version and path in cPanel's Setup Node.js App or via SSH (`which node`)
+    # - export PATH=/home/nassomn/nodevenv/public_html/YOUR_NODE_VERSION/bin:$PATH # Adjust path/version
+
+    # --- Backend Dependencies ---
+    # Install dependencies listed in the root package.json (which seems to be for the backend)
+    - cd $DEPLOYPATH
+    - npm install --production # Use --production to skip devDependencies like nodemon
+
+    # --- Frontend Build ---
+    # Install dependencies and build the frontend app
+    - cd $DEPLOYPATH/frontend
+    - npm install       # Install dependencies needed for the build process
+    - npm run build     # This command should create the 'frontend/dist' folder
+
+    # --- Admin Build ---
+    # Install dependencies and build the admin app
+    - cd $DEPLOYPATH/admin
+    - npm install       # Install dependencies needed for the build process
+    - npm run build     # This command should create the 'admin/dist' folder
+
+    # --- NO COPYING NEEDED ---
+    # Your server.js is already configured to serve directly from frontend/dist and admin/dist
+    # when NODE_ENV=production.
+
+    # --- Final Step ---
+    # Go back to the root directory (good practice)
+    - cd $DEPLOYPATH
+
+    # --- Optional Restart ---
+    # Usually, you restart the app via the cPanel 'Setup Node.js App' interface after deployment.
+    # If using Phusion Passenger directly, you might uncomment this:
+    # - /usr/bin/touch $DEPLOYPATH/tmp/restart.txt
