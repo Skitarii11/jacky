@@ -108,9 +108,10 @@ const Navbar = ({ setShowLogin, setActiveSection, activeSection }) => {
           {searchResults.length > 0 && (
             <div className="search-results">
               {searchResults.map(item => (
+                
                 <FoodItem
-                  key={item.id}
-                  id={item.id}
+                  key={item._id}
+                  id={item._id}
                   name={item.name}
                   price={item.price}
                   description={item.description}
