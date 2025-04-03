@@ -86,35 +86,35 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "categ 1",
+        menu_name: "Хувийн АОС-ны цэвэр усны өргөлтийн насос",
         menu_image: menu_1
     },
     {
-        menu_name: "categ 2",
+        menu_name: "Шалны халаалтын насос диаметр 15",
         menu_image: menu_2
     },
     {
-        menu_name: "categ 3",
+        menu_name: "Цэвэр усны өргөлтийн насос",
         menu_image: menu_3
     },
     {
-        menu_name: "categ 4",
+        menu_name: "Эрчим хүчний хэмнэлттэй ухаалаг насос",
         menu_image: menu_4
     },
     {
-        menu_name: "categ 5",
+        menu_name: "Халаалтын сүлжээний босоо насос",
         menu_image: menu_5
     },
     {
-        menu_name: "categ 6",
+        menu_name: "Хэрэгцээний халуун усны насос",
         menu_image: menu_6
     },
     {
-        menu_name: "categ 7",
+        menu_name: "Бохирын насос",
         menu_image: menu_7
     },
     {
-        menu_name: "categ 8",
+        menu_name: "Драйнеж гном",
         menu_image: menu_8
     }]
 

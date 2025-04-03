@@ -103,14 +103,14 @@ const Add = ({url}) => {
           <div className="add-category flex-col">
             <p>Product category /Төрөл/</p>
             <select onChange={onChangeHandler} name="category">
-              <option value="categ 1">categ 1</option>
-              <option value="categ 2">categ 2</option>
-              <option value="categ 3">categ 3</option>
-              <option value="categ 4">categ 4</option>
-              <option value="categ 5">categ 5</option>
-              <option value="categ 6">categ 6</option>
-              <option value="categ 7">categ 7</option>
-              <option value="categ 8">categ 8</option>
+              <option value="Хувийн АОС-ны цэвэр усны өргөлтийн насос">Хувийн АОС-ны цэвэр усны өргөлтийн насос</option>
+              <option value="Шалны халаалтын насос диаметр 15">Шалны халаалтын насос диаметр 15</option>
+              <option value="Цэвэр усны өргөлтийн насос">Цэвэр усны өргөлтийн насос</option>
+              <option value="Эрчим хүчний хэмнэлттэй ухаалаг насос">Эрчим хүчний хэмнэлттэй ухаалаг насос</option>
+              <option value="Халаалтын сүлжээний босоо насос">Халаалтын сүлжээний босоо насос</option>
+              <option value="Хэрэгцээний халуун усны насос">Хэрэгцээний халуун усны насос</option>
+              <option value="Бохирын насос">Бохирын насос</option>
+              <option value="Драйнеж гном">Драйнеж гном</option>
             </select>
           </div>
           <div className="add-price flex-col">
