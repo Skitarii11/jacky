@@ -11,7 +11,7 @@ const Add = ({url}) => {
     name: "",
     description: "",
     price: "",
-    use_field:"",
+    use:"",
     specialty:"",
     pack:"",
     model_detail:"",
@@ -37,7 +37,7 @@ const Add = ({url}) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", data.name);
-    formData.append("use_field", data.use_field);
+    formData.append("use", data.use);
     formData.append("specialty", data.specialty);
     formData.append("pack", data.pack);
     formData.append("dimension", data.dimension);
@@ -60,7 +60,7 @@ const Add = ({url}) => {
         name:"",
         description:"",
         price:"",
-        use_field:"",
+        use:"",
         specialty:"",
         pack:"",
         model_detail:"",
@@ -129,7 +129,7 @@ const Add = ({url}) => {
         </div>
         <div className="add-product-description flex-col">
           <p>Цахилгаан хүчдэл</p>
-          <textarea onChange={onChangeHandler} value={data.use_field} name="use_field" rows="6" placeholder='Write content here' required></textarea>
+          <textarea onChange={onChangeHandler} value={data.use} name="use" rows="6" placeholder='Write content here' required></textarea>
         </div>
         <div className="add-product-description flex-col">
           <p>Хүчдлийн зөвшөөрөгдөх хазайлт</p>

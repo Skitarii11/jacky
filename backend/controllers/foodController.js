@@ -16,7 +16,7 @@ const addFood = async (req, res) => {
             description: req.body.description,
             price: req.body.price,
             category: req.body.category,
-            use_field: req.body.use_field, // map to DB field name
+            use_field: req.body.use, // map to DB field name
             specialty: req.body.specialty,
             pack: req.body.pack,
             model_detail: req.body.model_detail,
