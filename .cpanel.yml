@@ -12,7 +12,7 @@ deployment:
     # --- Backend Dependencies ---
     # Install dependencies listed in the root package.json (which seems to be for the backend)
     - cd $DEPLOYPATH/backend
-    - npm install iiproduction # Use --production to skip devDependencies like nodemon
+    - npm install --production # Use --production to skip devDependencies like nodemon
 
     # --- Frontend Build ---
     # Install dependencies and build the frontend app
