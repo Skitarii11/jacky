@@ -1,27 +1,30 @@
-import mongoose from 'mongoose';
+import { DataTypes } from 'sequelize';
+import sequelize from '../config/db.js'; // Import the sequelize instance
 
-const foodSchema = new mongoose.Schema({
-    name : {type:String, required:true},
-    description: {type:String, required:true},
-    price : {type:Number, required:true},
-    category : {type:String, required:true},
-    image : {type:String, required:true},
-    use: {type:String, required:true},
-    specialty: {type:String, required:true},
-    model_detail: {type:String, required:true},
-    code : {type:String, required:true},
-    dimension: {type:String, required:true},
-    turelt: {type:String, required:true},
-    asaalt: {type:String, required:true},
-    guidel: {type:String, required:true},
-    hurd: {type:String, required:true},
-    chadal: {type:String, required:true},
-    motor75: {type:String, required:true},
-    motor100: {type:String, required:true},
-    pack: {type:String, required:true}
-    
-})
+const Food = sequelize.define('Food', {
+    // id is added automatically by Sequelize as primary key
+    name: { type: DataTypes.STRING, allowNull: false },
+    description: { type: DataTypes.TEXT, allowNull: false },
+    price: { type: DataTypes.FLOAT, allowNull: false }, // Or DataTypes.DECIMAL
+    category: { type: DataTypes.STRING, allowNull: false },
+    image: { type: DataTypes.STRING, allowNull: false },
+    use_field: { type: DataTypes.TEXT, allowNull: false, field: 'use_field' }, // Map to DB column name if different
+    specialty: { type: DataTypes.TEXT, allowNull: false },
+    model_detail: { type: DataTypes.TEXT, allowNull: false },
+    code: { type: DataTypes.STRING, allowNull: false },
+    dimension: { type: DataTypes.STRING, allowNull: false },
+    turelt: { type: DataTypes.TEXT, allowNull: false },
+    asaalt: { type: DataTypes.TEXT, allowNull: false },
+    guidel: { type: DataTypes.TEXT, allowNull: false },
+    hurd: { type: DataTypes.TEXT, allowNull: false },
+    chadal: { type: DataTypes.TEXT, allowNull: false },
+    motor75: { type: DataTypes.TEXT, allowNull: false },
+    motor100: { type: DataTypes.TEXT, allowNull: false },
+    pack: { type: DataTypes.TEXT, allowNull: false }
+    // createdAt and updatedAt are added automatically by Sequelize if timestamps: true (default)
+}, {
+    tableName: 'foods', // Explicitly specify table name
+    // timestamps: true // Default: Sequelize adds createdAt and updatedAt
+});
 
-const foodModel = mongoose.models.food || mongoose.model("food", foodSchema);
-
-export default foodModel;
+export default Food;

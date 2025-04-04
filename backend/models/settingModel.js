@@ -1,11 +1,14 @@
-import mongoose from 'mongoose';
+import { DataTypes } from 'sequelize';
+import sequelize from '../config/db.js';
 
-const settingSchema = new mongoose.Schema({
+const Setting = sequelize.define('Setting', {
     logoUrl: {
-        type: String,
-        default: '/images/default-logo.png'  // Or a placeholder image path
+        type: DataTypes.STRING,
+        defaultValue: '/images/default-logo.png'
     }
+}, {
+    tableName: 'settings',
+    // timestamps: true // Default
 });
 
-const settingModel = mongoose.models.Setting || mongoose.model('Setting', settingSchema);
-export default settingModel;
+export default Setting;

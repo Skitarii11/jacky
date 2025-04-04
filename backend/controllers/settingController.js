@@ -1,6 +1,7 @@
-import settingModel from "../models/settingModel.js"
+import Setting from "../models/settingModel.js"; // Import Sequelize model
 import multer from 'multer';
 import path from 'path';
+import fs from 'fs';
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
@@ -28,14 +29,18 @@ const upload = multer({
     }
 }).single('logo'); // 'logo' is the name of the field in the form
 
+const uploadsDir = path.resolve('uploads');
+
 const getSettings = async (req, res) => {
     try {
-        let settings = await settingModel.findOne({}); // Assuming only one settings document
-        if (!settings) {
-            // If no settings exist, create a default one
-            settings = new settingModel({ logoUrl: '/images/default-logo.png' });
-            await settings.save();
-        }
+        // findOrCreate ensures a setting document always exists
+        const [settings, created] = await Setting.findOrCreate({
+            where: {}, // Find any (should only be one)
+            defaults: { logoUrl: '/images/default-logo.png' } // Default values if created
+        });
+         if (created) {
+            console.log("Default settings created.");
+         }
         res.status(200).json({ success: true, data: settings });
     } catch (error) {
         console.error("Error getting settings:", error);
@@ -44,24 +49,43 @@ const getSettings = async (req, res) => {
 };
 
 const updateSettings = async (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ success: false, message: 'No file uploaded' });
+    }
+    const logoFilename = req.file.filename;
+    const newLogoUrl = `/uploads/${logoFilename}`;
+
     try {
-        // Check if a file was uploaded
-        if (!req.file) {
-            return res.status(400).json({ success: false, message: 'No file uploaded' });
+        // Find the existing setting first to get the old logo URL
+        const [settings, created] = await Setting.findOrCreate({
+             where: {},
+             defaults: { logoUrl: '/images/default-logo.png' }
+        });
+
+        const oldLogoUrl = settings.logoUrl; // Get the current logo URL
+
+        // Update the setting in the database
+        settings.logoUrl = newLogoUrl;
+        await settings.save(); // Save the changes to the instance
+
+        // Delete the old logo file if it's not the default and exists
+        if (oldLogoUrl && oldLogoUrl !== '/images/default-logo.png' && oldLogoUrl !== newLogoUrl) {
+            const oldLogoPath = path.join(uploadsDir, path.basename(oldLogoUrl)); // Extract filename
+            fs.unlink(oldLogoPath, (err) => {
+                 if (err && err.code !== 'ENOENT') { // Ignore if file doesn't exist
+                     console.error("Error deleting old logo file:", err);
+                 }
+            });
         }
 
-        // Generate the image URL (using a local file path or a cloud storage URL)
-        const logoUrl = `/uploads/${req.file.filename}`; // Example: Store the local file path in the database
-
-        const settings = await settingModel.findOneAndUpdate(
-            {}, // Find the first document
-            { logoUrl: logoUrl }, // Update the logo URL
-            { upsert: true, new: true, setDefaultsOnInsert: true } // Create if it doesn't exist, return the updated document, and apply schema defaults
-        );
-
         res.status(200).json({ success: true, message: "Settings updated successfully", data: settings });
+
     } catch (error) {
         console.error("Error updating settings:", error);
+        // If DB update fails, delete the newly uploaded file
+         fs.unlink(path.join(uploadsDir, logoFilename), (err) => {
+            if (err) console.error("Error deleting newly uploaded file after DB error:", err);
+        });
         res.status(500).json({ success: false, message: "Failed to update settings" });
     }
 };
