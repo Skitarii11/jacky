@@ -7,11 +7,15 @@ const FoodDetail = () => {
   const { food_list, url } = useContext(StoreContext);
   const { foodId } = useParams();
 
-  const foodItem = food_list.find(item => item._id === foodId);
+  const foodItem = food_list.find(item => String(item.id) === foodId);
 
   if (!foodItem) {
-    return <div>Food item not found.</div>;
-  }
+    // Add more context if the list itself is empty
+    if (!food_list || food_list.length === 0) {
+         return <div>Food list not loaded yet or is empty.</div>;
+    }
+    return <div>Food item with ID '{foodId}' not found in the list.</div>;
+}
 
   return (
     <div className="product-detail-container">
