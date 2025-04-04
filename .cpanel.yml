@@ -4,7 +4,7 @@ deployment:
     # Define the deployment path (matches your cPanel Git Repository Path)
     - export DEPLOYPATH=/home/nasosmn/repositories/nasos
 
-    - source /home/nasosmn/nodevenv/repositories/nasos/14/bin/activate
+    - source /home/nasosmn/nodevenv/repositories/nasos/22/bin/activate
     # (Optional but sometimes needed) Add Node.js to PATH for the deployment script
     # Check your Node.js version and path in cPanel's Setup Node.js App or via SSH (`which node`)
     # - export PATH=/home/nassomn/nodevenv/public_html/YOUR_NODE_VERSION/bin:$PATH # Adjust path/version
