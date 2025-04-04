@@ -11,7 +11,7 @@ import AdminLogoSettings from './pages/Logo/AdminLogoSettings'
 
 const App = () => {
 
-  const url = "nasos.mn"
+  const url = ""
 
   return (
     <div>

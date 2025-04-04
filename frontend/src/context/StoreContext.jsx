@@ -5,7 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
-    const url = "nasos.mn";
+    const url = "";
     const [token, setToken] = useState("");
     const [food_list, setFoodList] = useState([]);
     const [logoUrl, setLogoUrl] = useState('');
