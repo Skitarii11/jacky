@@ -11,6 +11,12 @@ const addFood = async (req, res) => {
     const image_filename = req.file.filename;
 
     try {
+        const priceAsNumber = parseFloat(req.body.price);
+        if (isNaN(priceAsNumber)) {
+            // Handle case where price is not a valid number
+            // Throw error BEFORE trying to create, so file cleanup happens
+            throw new Error('Invalid price value provided.');
+        }
         const newFood = await Food.create({ // Use Sequelize's create method
             name: req.body.name,
             description: req.body.description,
