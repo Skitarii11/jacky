@@ -37,29 +37,15 @@ app.use("/api/order", orderRouter)
 app.use('/api', router)
 
 if(process.env.NODE_ENV === 'production'){
-    const projectRoot = path.join(__dirname, '..'); // '..' goes up one directory level
+    app.use(express.static(path.join(__dirname, "/frontend/dist")));
+    app.use(express.static(path.join(__dirname, "/admin/dist")));
 
-    // Serve static files from the frontend build directory
-    app.use(express.static(path.join(projectRoot, 'frontend', 'dist')));
-
-    // Serve static files from the admin build directory
-    // Note: If frontend and admin have files with the same name (e.g., assets),
-    // you might need to namespace the admin static path, e.g.,
-    // app.use('/admin-assets', express.static(path.join(projectRoot, 'admin', 'dist')));
-    // But for index.html serving, the current approach might be okay depending on exact needs.
-    // Let's stick to your original structure for now:
-    app.use(express.static(path.join(projectRoot, 'admin', 'dist')));
-
-    // Handle requests to /admin/* by serving the admin index.html
-    // This route needs to come BEFORE the general '*' catch-all
     app.get("/admin/*", (req, res) => {
-        res.sendFile(path.resolve(projectRoot, "admin", "dist", "index.html"));
+        res.sendFile(path.resolve(__dirname, "admin", "dist", "index.html"));
     })
 
-    // Handle all other non-API GET requests by serving the frontend index.html
-    // This acts as a catch-all for client-side routing in the frontend app
     app.get("*", (req, res) => {
-        res.sendFile(path.resolve(projectRoot, "frontend", "dist", "index.html"));
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
     })
 }
 
