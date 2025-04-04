@@ -11,7 +11,7 @@ import AdminLogoSettings from './pages/Logo/AdminLogoSettings'
 
 const App = () => {
 
-  const url =  process.env.REACT_APP_API_ENDPOINT
+  const url = "nasos.mn"
 
   return (
     <div>
