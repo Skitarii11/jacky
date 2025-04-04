@@ -14,7 +14,7 @@ const addFood = async (req, res) => {
         const newFood = await Food.create({ // Use Sequelize's create method
             name: req.body.name,
             description: req.body.description,
-            price: req.body.price,
+            price: priceAsNumber,
             category: req.body.category,
             use_field: req.body.use, // map to DB field name
             specialty: req.body.specialty,
