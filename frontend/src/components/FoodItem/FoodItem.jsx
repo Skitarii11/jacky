@@ -23,7 +23,7 @@ const FoodItem = ({ id, name, price, description, image, displayMode = 'default'
         </div>
         {displayMode === 'recommend' ? (
            // For recommend section, just show "Learn More" link styling
-           <div className="food-item-learn-more" onClick={handleItemClick} style={{cursor: 'pointer', marginTop: '10px', color: '#007bff', fontWeight: 'bold'}}>
+           <div className="food-item-learn-more" onClick={handleItemClick} style={{color: '#3f3e3e', fontWeight: 'bold'}}>
                Learn More
            </div>
         ) : (

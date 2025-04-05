@@ -123,3 +123,9 @@
 .food-item-counter img {
     width: 30px;
 }
+
+.food-item-learn-more {
+    font-size: 10px;
+    margin: 10px;
+    left: 0;
+}
