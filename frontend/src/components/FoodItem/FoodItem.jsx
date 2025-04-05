@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./FoodItem.css";
 import { StoreContext } from "../../context/StoreContext";
 
-const FoodItem = ({ id, name, price, description, image, displayMode = 'default' }) => {
+const FoodItem = ({ id, name, price, description, image, displayMode = 'default', newTag = 'default' }) => {
   const { url } = useContext(StoreContext);
 
   const handleItemClick = () => {
@@ -14,6 +14,15 @@ const FoodItem = ({ id, name, price, description, image, displayMode = 'default'
       className="food-item"
       onClick={handleItemClick}
     >
+      {newTag === 'recommend' ? (
+           // For recommend section, just show "Learn More" link styling
+           <div className="food-item-new" onClick={handleItemClick}>
+               NEW
+           </div>
+        ) : (
+          <div style={{display:'none'}}>
+          </div>
+        )}
       <div className="food-item-img-container">
         <img className="food-item-image" src={url + "/images/" + image} alt="" />
       </div>

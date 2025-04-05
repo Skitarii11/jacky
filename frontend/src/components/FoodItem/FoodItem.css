@@ -125,7 +125,20 @@
 }
 
 .food-item-learn-more {
-    font-size: 10px;
+    font-size: 14px;
     margin: 10px;
-    left: 0;
+    text-align: left;
+}
+
+.food-item-new {
+    position: absolute; /* Position absolutely relative to the nearest positioned ancestor */
+    top: 10px;          /* Distance from the top edge of the image container */
+    left: 10px;         /* Distance from the left edge of the image container */
+    background-color: #EC3131; /* Red background */
+    color: white;       /* White text */
+    font-weight: bold;
+    font-size: 12px;    /* Adjust size */
+    padding: 4px 8px;   /* Add some padding */
+    border-radius: 4px; /* Optional: slightly rounded corners */
+    z-index: 1;
 }

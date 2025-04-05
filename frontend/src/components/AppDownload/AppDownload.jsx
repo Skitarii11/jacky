@@ -74,7 +74,8 @@ const AppDownload = () => {
             </div>
             <div className='recommend'>
                 <h2 className='recommend-title'>Nasos</h2>
-                <p className='recommend-subtitle'>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics</p> {/* Optional subtitle */}
+                <p className='recommend-subtitle'>Problems trying to resolve the conflict between <br />the two major realms of Classical physics: Newtonian mechanics
+                </p>
 
                 <div className="recommend-items-container">
                     {recommendedItems.length > 0 ? (
@@ -87,6 +88,7 @@ const AppDownload = () => {
                                 price={item.price}
                                 image={item.image}
                                 displayMode="recommend"
+                                newTag='recommend'
                             />
                         ))
                         ) : (

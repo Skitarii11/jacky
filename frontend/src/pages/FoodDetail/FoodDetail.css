@@ -6,6 +6,23 @@
   font-family: Arial, sans-serif;
 }
 
+hr {
+  color: white;
+  margin: 10px 0;
+  height: 3px;
+}
+
+.product-pri {
+  width: 100%;
+  text-align: center;
+  color: white;
+  background-color: #58bc94;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 8px;
+}
+
 /* Product Images Section */
 .product-images-section {
   flex: 0 0 40%;
@@ -39,9 +56,9 @@
 }
 
 .thumbnail-image {
-  width: 70px;
+  width: 30%;
   height: 70px;
-  object-fit: cover;
+  object-fit: contain;
   border: 1px solid #ddd;
   cursor: pointer;
   transition: border-color 0.2s;
@@ -94,6 +111,10 @@
   flex: 0 0 70%
 }
 
+.psa {
+  color: #58bc94;
+}
+
 .spec-label {
   flex: 0 0 50%;
   font-weight: bold;
@@ -128,6 +149,10 @@
   font-weight: bold;
 }
 
+.bl {
+  border-top: 1px solid #58bc94;
+}
+
 .quantity-selector input {
   width: 60px;
   padding: 8px;
@@ -150,8 +175,273 @@
   background-color: #45a049;
 }
 
+.fromcate {
+  display: flex;
+  margin: auto;
+  width: 70%;
+}
+
+.psadw {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  color: #333;
+  font-size: 30px;
+}
+
+.same-kind-container {
+  width: 100%; /* Take full width of the container */
+  margin-top: 40px; /* Add some space above */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.same-kind-items {
+  display: flex;
+  justify-content: space-around; /* Distribute space between items */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 20px; /* Space between cards */
+}
+
+.same-kind-card {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden; /* Ensure content fits within rounded corners */
+  width: 45%; /* Aim for two cards side-by-side, adjust as needed */
+  min-width: 280px; /* Minimum width before wrapping */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  min-height: 280px;
+}
+
+.same-kind-card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.same-kind-image-container {
+  flex: 0 0 40%; /* Image takes about 40% of the card width */
+  background-color: #f0f0f0; /* Placeholder bg color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; /* Add padding around image */
+  box-sizing: border-box;
+}
+
+.same-kind-image {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  min-height: 280px; /* Limit image height */
+  object-fit: contain; /* Fit image within bounds */
+}
+
+.same-kind-info {
+  flex: 0 0 60%; /* Info takes about 60% of the card width */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes button to bottom */
+  box-sizing: border-box;
+}
+
+.same-kind-category {
+  font-size: 0.8rem;
+  color: #58bc94; /* Blue color like example */
+  font-weight: 500;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.same-kind-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  /* Limit lines if needed */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.4em; /* Reserve space for 2 lines */
+}
+
+.same-kind-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  /* Limit lines if needed */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1; /* Allows description to take available space */
+}
+
+/* Optional: Add styles for details like icons if you implement them */
+/* .same-kind-details {
+  display: flex;
+  gap: 15px;
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 15px;
+} */
+
+.same-kind-button {
+  background-color: #fff;
+  color: #58bc94;
+  border: 1px solid #58bc94;
+  padding: 8px 15px;
+  border-radius: 20px; /* Rounded pill shape */
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+  align-self: flex-start; /* Align button to the left */
+}
+
+.same-kind-button:hover {
+  background-color: #4bdea3;
+  color: #fff;
+}
+
+.bestseller-container {
+  width: 100%;
+  padding: 50px 20px; /* Add padding */
+  margin-top: 40px; /* Space above this section */
+  background-color: white; /* Dark background like the example */
+  color: #fff; /* Default text color for the section */
+  box-sizing: border-box;
+}
+
+.bestseller-header {
+  text-align: center;
+  margin-bottom: 40px; /* Space below header */
+}
+
+.bestseller-header h4 {
+  font-size: 0.9rem;
+  color: black; /* Lighter grey for subtitle */
+  margin-bottom: 8px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.bestseller-header h2 {
+  font-size: 1.7rem; /* Slightly smaller than product title */
+  color: #5353C0;
+  margin-bottom: 12px;
+  font-weight: bold;
+  text-transform: uppercase; /* Match example */
+  letter-spacing: 1px;
+}
+
+.bestseller-header p {
+  font-size: 0.9rem;
+  color: #a0a0a0; /* Medium grey */
+  max-width: 450px;
+  margin: 0 auto; /* Center the paragraph */
+  line-height: 1.5;
+}
+
+.bestseller-grid {
+  display: grid;
+  /* Create 5 columns on larger screens, adjust minmax for item size */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 25px; /* Space between FoodItem cards */
+  max-width: 1200px; /* Align with overall container width */
+  margin: 0 auto; /* Center the grid */
+}
+
+/* Target FoodItem specifically within the bestseller grid for overrides */
+.bestseller-grid .food-item {
+  background-color: white; /* Darker card background */ 
+  border-radius: 8px; /* Match example rounding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow for dark theme */
+  color: #fff; /* Ensure text inside is white/light */
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer; /* Already handled by FoodItem onClick */
+}
+.bestseller-grid .food-item:hover {
+   transform: translateY(-5px);
+}
+
+
+.bestseller-grid .food-item-img-container {
+  background-color: #e0e0e0; /* Light grey background for image like example */
+  border-radius: 8px 8px 0 0; /* Round top corners */
+  padding: 15px; /* Add padding around image */
+  aspect-ratio: 1 / 1; /* Make image container square-ish */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bestseller-grid .food-item-image {
+  max-height: 100%; /* Ensure image fits */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+
+.bestseller-grid .food-item-info {
+  padding: 15px;
+  text-align: center; /* Center text below image */
+}
+
+.food-item-name-rating {
+  justify-content: center;
+}
+
+.bestseller-grid .food-item-name-rating p {
+  color: #2DC071; /* Green color for name/title like example */
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 8px; /* Space below name */
+}
+
+/* Style description (used for category in example) */
+.bestseller-grid .food-item-desc {
+  color: #bdbdbd; /* Lighter grey text */
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 12px; /* Space below description */
+   /* Limit lines if needed */
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Show only one line for description */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 1.3em; /* Reserve space for one line */
+}
+
+.bestseller-grid .food-item-price {
+  color: #2DC071; /* Green color for price */
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
+  .bestseller-grid {
+    /* e.g., 3 columns */
+   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+   gap: 15px;
+  }
+  .bestseller-container {
+    padding: 40px 15px;
+  }
+  .bestseller-header h2 {
+    font-size: 1.4rem;
+  }
+  .bestseller-header p {
+      font-size: 0.85rem;
+  }
   .product-detail-container {
     flex-direction: column;
   }
@@ -161,6 +451,10 @@
     flex: 0 0 100%;
   }
   
+  .fromcate {
+    flex-direction: column;
+  }
+
   .spec-label {
     flex: 0 0 50%;
   }
@@ -168,11 +462,41 @@
   .spec-value {
     flex: 0 0 50%;
   }
+
+  .same-kind-items {
+    justify-content: center; /* Center items when they wrap */
+  }
+
+  .same-kind-card {
+      width: 80%; /* Make cards wider on medium screens */
+  }
 }
 
 @media (max-width: 480px) {
+  .bestseller-grid {
+    /* e.g., 2 columns */
+   grid-template-columns: repeat(2, 1fr);
+   gap: 10px;
+  }
+  .bestseller-grid .food-item-info {
+      padding: 10px;
+  }
+ .bestseller-grid .food-item-name-rating p {
+   font-size: 0.9rem;
+  }
+  .bestseller-grid .food-item-desc {
+   font-size: 0.8rem;
+   margin-bottom: 8px;
+  }
+   .bestseller-grid .food-item-price {
+   font-size: 1rem;
+  }
   .product-title {
     font-size: 1.5rem;
+  }
+
+  .fromcate {
+    flex-direction: column;
   }
   
   .product-model {
@@ -198,5 +522,28 @@
   
   .spec-label {
     margin-bottom: 5px;
+  }
+
+  .same-kind-card {
+    width: 95%; /* Almost full width on small screens */
+    flex-direction: column; /* Stack image and info vertically */
+    min-height: 150px;
+  }
+  .same-kind-image-container {
+      flex: 0 0 auto; /* Reset flex basis */
+      height: 180px; /* Fixed height for vertical layout */
+      width: 100%;
+  }
+  .same-kind-image {
+      max-height: 160px; /* Adjust max height */
+      min-height: 160px;
+  }
+  .same-kind-info {
+      flex: 0 0 auto; /* Reset flex basis */
+  }
+  .same-kind-button {
+      align-self: center; /* Center button */
+      width: 80%;
+      margin-top: 10px;
   }
 }
