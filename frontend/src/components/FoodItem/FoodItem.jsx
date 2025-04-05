@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./FoodItem.css";
 import { StoreContext } from "../../context/StoreContext";
 
-const FoodItem = ({ id, name, price, description, image }) => {
+const FoodItem = ({ id, name, price, description, image, displayMode = 'default' }) => {
   const { url } = useContext(StoreContext);
 
   const handleItemClick = () => {
@@ -11,7 +11,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
 
   return (
     <div
-      className="food-item"  // Remove expanded class logic from here
+      className="food-item"
       onClick={handleItemClick}
     >
       <div className="food-item-img-container">
@@ -21,8 +21,18 @@ const FoodItem = ({ id, name, price, description, image }) => {
         <div className="food-item-name-rating">
           <p>{name}</p>
         </div>
-        <p className="food-item-desc">{description}</p>
-        <p className="food-item-price">${price}</p>
+        {displayMode === 'recommend' ? (
+           // For recommend section, just show "Learn More" link styling
+           <div className="food-item-learn-more" onClick={handleItemClick} style={{cursor: 'pointer', marginTop: '10px', color: '#007bff', fontWeight: 'bold'}}>
+               Learn More
+           </div>
+        ) : (
+          // Default display with description and price
+          <>
+            <p className="food-item-desc">{description}</p>
+            <p className="food-item-price">${price}</p>
+          </>
+        )}
       </div>
     </div>
   );

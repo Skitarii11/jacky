@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './AppDownload.css';
 import { StoreContext } from '../../context/StoreContext';
 import Carousel from '../Carousel/Carousel'; // Import the Carousel component
+import FoodItem from '../FoodItem/FoodItem';
 
 const AppDownload = () => {
     const { food_list, url } = useContext(StoreContext);
@@ -10,6 +11,7 @@ const AppDownload = () => {
     const [randomImages3, setRandomImages3] = useState([]);
     const [randomImages4, setRandomImages4] = useState([]);
     const [carouselImages, setCarouselImages] = useState([]);//added statet
+    const [recommendedItems, setRecommendedItems] = useState([]);
 
     useEffect(() => {
         // Function to get a subset of random images from food_list
@@ -29,6 +31,12 @@ const AppDownload = () => {
         setRandomImages4(getRandomImages(3));// Adjust the count as needed
         if (Array.isArray(food_list)) {
             setCarouselImages(food_list.map(item => url + "/images/" + item.image));
+            const shuffled = [...food_list].sort(() => 0.5 - Math.random());
+            setRecommendedItems(shuffled.slice(0, 3));
+        } else {
+            // Reset if food_list is empty or not an array
+            setCarouselImages([]);
+            setRecommendedItems([]);
         }
     }, [food_list, url]); // Depend on food_list and url so when those updated, it'll be updated as well
 
@@ -63,6 +71,28 @@ const AppDownload = () => {
                         <Carousel images={randomImages4} showButtons={false} />
                     </div>
                 )}
+            </div>
+            <div className='recommend'>
+                <h2 className='recommend-title'>Nasos</h2>
+                <p className='recommend-subtitle'>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics</p> {/* Optional subtitle */}
+
+                <div className="recommend-items-container">
+                    {recommendedItems.length > 0 ? (
+                        recommendedItems.map((item) => (
+                            <FoodItem
+                                key={item.id || item._id} // Use unique key
+                                id={item.id || item._id}   // Pass the ID for the link
+                                name={item.name}
+                                description={item.description}
+                                price={item.price}
+                                image={item.image}
+                                displayMode="recommend"
+                            />
+                        ))
+                        ) : (
+                            <p>Loading recommendations...</p>
+                    )}
+                </div>
             </div>
         </div>
     );
