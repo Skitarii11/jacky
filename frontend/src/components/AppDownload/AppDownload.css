@@ -106,19 +106,342 @@ hr {
    /* Add other specific styles if needed */
 }
 
-@media (max-width: 500px) {
+.featured-product-section {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  align-items: flex-start; /* Align items to the top */
+  background-color: #f8f9fa; /* Light background for the section */
+  padding: 40px 20px; /* Add some padding */
+  margin: 30px 0; /* Space around the section */
+  gap: 30px; /* Space between carousel and info */
+  border-radius: 8px; /* Optional rounded corners */
+}
+.featured-product-section-placeholder{
+  text-align: center;
+  padding: 60px;
+  color: #666;
+  background-color: #f8f9fa;
+   margin: 30px 0;
+}
+
+.featured-carousel-container {
+  flex: 1; /* Take up half the space */
+  min-width: 300px; /* Minimum width before wrapping */
+  /* Limit max width if needed, e.g., max-width: 50%; */
+  /* Ensure carousel inside takes available width */
+  position: relative; /* Needed for carousel controls */
+}
+
+/* Optional: Style the carousel within this container specifically */
+.featured-carousel-container .carousel {
+  border-radius: 8px; /* Match section rounding */
+  overflow: hidden; /* Clip carousel items */
+}
+.featured-carousel-container .carousel img {
+  aspect-ratio: 1 / 1; /* Make images square-ish */
+  object-fit: contain; /* Ensure image fits without distortion */
+  background-color: #e9ecef; /* Background for image area */
+}
+
+.featured-info-container {
+  flex: 1; /* Take up the other half */
+  min-width: 300px; /* Minimum width */
+  padding-left: 20px; /* Space between carousel and text */
+  box-sizing: border-box;
+  text-align: left; /* Align text to the left */
+  font-size: 1rem; /* Reset font size for content */
+  color: #333;
+}
+
+.featured-item-name {
+  font-size: 1.8rem; /* Large title */
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 10px;
+}
+
+.featured-item-price {
+  font-size: 1.5rem; /* Prominent price */
+  font-weight: bold;
+  color: #0d6efd; /* Blue color for price */
+  margin-bottom: 15px;
+}
+
+.featured-item-availability {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.featured-item-availability span {
+  color: #198754; /* Green for "In Stock" */
+  font-weight: bold;
+}
+
+.featured-item-description {
+  font-size: 0.95rem;
+  color: #6c757d; /* Grey text for description */
+  line-height: 1.6;
+  margin-bottom: 25px;
+  /* Limit description lines if necessary */
+   display: -webkit-box;
+  -webkit-line-clamp: 4; /* Show max 4 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 6.4em; /* approx height for 4 lines */
+}
+
+.featured-info-hr {
+  border: none;
+  height: 1px;
+  background-color: #dee2e6; /* Light grey line */
+  margin: 20px 0;
+}
+
+.featured-details-button {
+  background-color: #0d6efd; /* Blue background */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.featured-details-button:hover {
+  background-color: #0b5ed7; /* Darker blue on hover */
+}
+
+.app-download-platforms .carousel {
+  height: 150px; /* --- SET A FIXED HEIGHT for small carousels (Adjust as needed) --- */
+  /* Override flex alignment if it's causing issues, or keep if needed */
+  /* align-items: center; */ /* You might not need flex here if container below handles it */
+}
+
+/* Target the image container inside the small carousels */
+.app-download-platforms .carousel-image-container {
+  height: 100%; /* Make container fill the parent .carousel's height */
+  display: flex; /* Use flexbox to center the image */
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  background-color: #fafafa; /* Optional: background for empty space */
+}
+
+/* Target the image specifically inside the small carousels */
+.app-download-platforms .carousel-image {
+  height: 100%;     /* Let the image try to fill the container height */
+  max-height: 100%; /* Ensure it doesn't exceed the container */
+  width: auto;      /* Let width adjust based on height to maintain aspect ratio */
+  max-width: 100%;   /* Ensure it doesn't exceed the container width */
+  object-fit: contain; /* Keep contain - this is correct */
+}
+
+@media (max-width: 768px) {
+
+  /* --- General Adjustments --- */
+  .app-download {
+      margin-top: 30px; /* Reduce top margin */
+      font-size: max(4vw, 18px); /* Adjust base font size if needed */
+  }
+
+  hr {
+      margin: 30px 0; /* Reduce margin for separators */
+      height: 3px; /* Slightly thinner line */
+  }
+
+  /* --- Header Section --- */
+  .headerss {
+      height: 65vw; /* Adjust height for potentially different aspect ratio */
+      background-size: cover; /* Change to cover to fill the area, might crop */
+      background-position: center center; /* Center the background image */
+  }
+
+  .header-contentss {
+      max-width: 75%; /* Allow content to take more width */
+      bottom: 20%; /* Adjust vertical position */
+      left: 5vw; /* Adjust horizontal position */
+      gap: 2vw; /* Slightly reduce gap */
+  }
+
+  .header-contentss h2 {
+      font-size: max(4.5vw, 16px); /* Adjust title font size */
+  }
+  .header-contentss p {
+      font-size: 2.5vw; /* Adjust paragraph font size */
+      /* You might need to remove this paragraph or shorten its text */
+      /* display: none; */
+  }
+
+  /* --- Featured Product Section --- */
+  .featured-product-section {
+      flex-direction: column; /* Stack vertically */
+      align-items: center; /* Center items when stacked */
+      padding: 25px 15px; /* Adjust padding */
+      gap: 25px; /* Adjust gap */
+  }
+
+  .featured-carousel-container {
+      width: 90%; /* Take most of the width */
+      max-width: 450px; /* Limit width */
+      min-width: unset; /* Remove min-width constraint */
+      margin-bottom: 20px; /* Space below carousel */
+  }
+  /* Adjust image size if needed */
+  .featured-carousel-container .carousel img {
+       /* aspect-ratio: 4/3; */ /* Optional: change aspect ratio */
+  }
+
+
+  .featured-info-container {
+      width: 95%; /* Full width */
+      min-width: unset; /* Remove min-width constraint */
+      padding-left: 0; /* Remove left padding */
+      text-align: center; /* Center text */
+  }
+
+  .featured-item-name {
+      font-size: 1.5rem; /* Adjust font size */
+  }
+  .featured-item-price {
+      font-size: 1.3rem; /* Adjust font size */
+  }
+  .featured-item-description {
+      min-height: auto; /* Remove min-height */
+      -webkit-line-clamp: 3; /* Show fewer lines */
+      font-size: 0.9rem;
+  }
+  .featured-details-button {
+      padding: 10px 20px;
+      font-size: 0.95rem;
+  }
+
+
+  /* --- Small Carousels Section --- */
+  .app-download-platforms {
+      /* Keep display: flex */
+      flex-wrap: wrap; /* Ensure wrapping */
+      justify-content: center; /* Center items */
+      height: auto; /* Let height be determined by content */
+      gap: 20px; /* Adjust gap */
+      padding: 15px 0; /* Add some vertical padding */
+  }
+
+  .small-carousel-container {
+      flex: 1 1 calc(50% - 20px); /* Aim for 2 across, adjust gap in calc */
+      max-width: calc(50% - 20px); /* Consistent max width */
+      min-width: 150px; /* Adjust minimum width before wrapping */
+      height: 130px; /* Slightly adjust height if desired */
+      max-height: 130px;
+      /* width calculation is handled by flex, remove fixed width */
+  }
+
+  /* Inherited small carousel image styles should still work */
+  .app-download-platforms .carousel {
+       height: 100%; /* Make carousel fill the container height */
+  }
+
+
+  /* --- Recommend Section --- */
+  .recommend {
+      margin-top: 30px;
+      margin-bottom: 20px;
+  }
+  .recommend-title {
+      font-size: 2rem; /* Adjust font size */
+  }
+  .recommend-subtitle {
+      font-size: 0.9rem; /* Adjust font size */
+      margin-bottom: 20px;
+      padding: 0 10px; /* Add padding so text doesn't hit edges */
+  }
+  .recommend-items-container {
+      gap: 20px; /* Adjust gap */
+      padding: 0 15px; /* Adjust side padding */
+      margin-top: 40px;
+  }
+
+  .recommend-items-container .food-item {
+      flex-basis: calc(50% - 20px); /* Aim for 2 items per row */
+      max-width: calc(50% - 20px);
+      min-width: 200px; /* Adjust min-width */
+  }
+
+}
+
+@media (max-width: 480px) {
     .app-download-platforms {
       display: flex; /* Use grid layout for 2x2 */
       flex-wrap: wrap;
       height: auto; /* Adjust height as needed */
       justify-items: center; /* Center items horizontally */
       align-items: center; /* Center items vertically */
+      overflow: hidden;
+      gap: 15px;
     }
   
     .small-carousel-container {
-      width: 50%; /* Each carousel takes up the full width of its grid cell */
-      max-width: none; /* Remove max-width to fill the grid cell */
-      height: 150px; /* Allow the height to adjust based on content */
-      max-height: none; /* Remove max-height restriction */
+      flex-basis: calc(50% - 15px); /* Keep 2 across, or change to 90% for single column */
+        max-width: calc(50% - 15px); /* Match basis */
+        min-width: 130px; /* Allow them to get smaller */
+        height: 120px; /* Potentially smaller height */
+        max-height: 120px;
     }
+
+    .app-download-platforms .carousel-image-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+      overflow: hidden; /* Important */
   }
+
+  .app-download-platforms .carousel {
+    height: 100%;
+  }
+
+  
+
+  .app-download-platforms .carousel-image {
+      height: 100%;
+      max-height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+  }
+
+    .featured-product-section {
+      flex-direction: column; /* Stack vertically */
+      align-items: center; /* Center items when stacked */
+      padding: 20px;
+  }
+
+  .featured-carousel-container {
+      width: 90%; /* Take most of the width */
+      max-width: 400px; /* Limit width */
+      margin-bottom: 30px; /* Space below carousel */
+  }
+
+  .featured-info-container {
+      width: 100%; /* Full width */
+      padding-left: 0; /* Remove left padding */
+      text-align: center; /* Center text */
+  }
+
+  .featured-item-name {
+      font-size: 1.6rem;
+  }
+  .featured-item-price {
+      font-size: 1.4rem;
+  }
+
+  .featured-item-description {
+       min-height: auto; /* Remove min-height */
+       -webkit-line-clamp: 3; /* Show fewer lines */
+  }
+}
