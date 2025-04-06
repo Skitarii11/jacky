@@ -18,6 +18,11 @@ const List = ({url}) => {
   };
 
   const removeFood = async (foodId) => {
+    console.log('Attempting to remove food with ID:', foodId); // Add this log
+    if (!foodId) {
+      toast.error("Cannot remove item: Invalid ID provided.");
+      return; // Stop if ID is invalid on the frontend
+    }
     const response = await axios.post(`${url}/api/food/remove`, {id:foodId})
     await fetchList()
     if(response.data.success){
@@ -49,7 +54,7 @@ const List = ({url}) => {
               <p>{item.name}</p>
               <p>{item.category}</p>
               <p>${item.price}</p>
-              <p onClick={()=>removeFood(item._id)} className='cursor'>X</p>
+              <p onClick={()=>removeFood(item.id)} className='cursor'>X</p>
             </div>
           )
         })}
